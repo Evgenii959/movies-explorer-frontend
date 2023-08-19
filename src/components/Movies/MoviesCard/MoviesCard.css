@@ -1,0 +1,58 @@
+.photo__item {
+    width: 100%;
+}
+@media (max-width: 768px) {
+    .photo__item {
+        max-width: 339px;
+    }
+}
+.photo__title {
+    font-size: 13px;
+    font-weight: 500;
+    margin: 14px 0 29px;
+}
+.photo__duration {
+    font-size: 11px;
+}
+.photo__toggle {
+    background-color: #313131;
+    border-radius: 50%;
+    max-height: 23px;
+    max-width: 24px;
+    width: 100%;
+    margin-top: 11px;
+    cursor: pointer;
+}
+.photo__toggle_delete {
+    opacity: 0;
+}
+.photo__toggle_delete:hover {
+    opacity: 1;
+}
+.photo__heart {
+    margin: 7px;
+}
+.photo__delete {
+    margin: 7px 4px;
+}
+.photo__title-toggle {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+}
+.photo__addMoviesCard {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 6px;
+    background-color: #2f2f2f;
+    margin: 0 auto 159px;
+    max-width: 320px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500px;
+}
+@media (max-width: 320px) {
+    .photo__addMoviesCard {
+        max-width: 240px;
+    }
+}

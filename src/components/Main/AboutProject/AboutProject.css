@@ -1,0 +1,138 @@
+.project {
+    max-height: 608px;
+    padding-top: 110px;
+    padding-bottom: 110px;
+    margin: auto;
+    max-width: 1140px;
+}
+@media (max-width: 768px) {
+    .project {
+        padding-top: 90px;
+        padding-bottom: 90px;
+        max-width: 668px;
+    }
+}
+@media (max-width: 320px) {
+    .project {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+}
+.project__header {
+    font-size: 22px;
+    border-bottom: 1px solid #DADADA;
+    padding-bottom: 23px;
+    font-weight: 400;
+    margin: auto;
+}
+@media (max-width: 320px) {
+    .project__header {
+        font-size: 18px;
+        max-width: 284px;
+    }
+}
+.project__block {
+    display: grid;
+    grid-template-columns: 550px 550px;
+    grid-template-rows: 150px 150px;
+    column-gap: 40px;
+    row-gap: 60px;
+}
+@media (max-width: 768px) {
+    .project__block {
+        grid-template-columns: 319px 319px;
+        grid-template-rows: 150px 150px;
+        column-gap: 30px;
+    }
+}
+@media (max-width: 320px) {
+    .project__block {
+        grid-template-columns: 319px;
+        grid-template-rows: 150px;
+    }
+}
+.project__title {
+    font-size: 20px;
+    margin: 70px auto 26px;
+    font-weight: 400;
+}
+@media (max-width: 320px) {
+    .project__title {
+        font-size: 18px;
+    }
+}
+.project__subtitle {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+@media (max-width: 320px) {
+    .project__subtitle {
+        font-size: 11px;
+        line-height: 16px;
+    }
+}
+.project__plan {
+    margin: 0;
+}
+.project__text-one {
+    max-width: 550px;
+    margin: auto;
+}
+@media (max-width: 320px) {
+    .project__text-one {
+        max-width: 284px;
+    }
+}
+.project__text-two {
+    max-width: 550px;
+    margin: auto;
+}
+@media (max-width: 320px) {
+    .project__text-two {
+        max-width: 284px;
+    }
+}
+.project__schedule {
+    display: grid;
+    grid-template-columns: 228px 912px;
+    grid-template-rows: 36px 36px;
+    text-align: center;
+    margin: auto;
+}
+@media (max-width: 768px) {
+    .project__schedule {
+        grid-template-columns: 140px 528px;
+    }
+}
+@media (max-width: 320px) {
+    .project__schedule {
+        grid-template-columns: 100px 184px;
+    }
+}
+.project__schedule-title {
+    font-size: 14px;
+    font-weight: 400;
+    padding-bottom: 9px;
+    padding-top: 9px;
+    background-color: #303030;
+}
+@media (max-width: 320px) {
+    .project__schedule-title {
+        font-size: 11px;
+    }
+}
+.project__schedule-title_green {
+    background-color: #3DDC84;
+}
+.project__schedule-subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 14px 0 0;
+    color: #8B8B8B;
+}
+@media (max-width: 320px) {
+    .project__schedule-subtitle {
+        font-size: 11px;
+    }
+}

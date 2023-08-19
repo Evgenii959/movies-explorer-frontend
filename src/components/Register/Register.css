@@ -1,0 +1,17 @@
+.header__register {
+    max-width: 396px;
+    width: 100%;
+    padding: 70px 0 40px;
+}
+@media (max-width: 768px) {
+    .header__register {
+        padding-top: 232px;
+    }
+}
+@media (max-width: 320px) {
+    .header__register {
+        padding-top: 56px;
+        padding-bottom: 40px;
+        justify-content: center;
+    }
+}

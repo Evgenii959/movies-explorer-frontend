@@ -1,0 +1,120 @@
+.tech {
+    background-color: #272727;
+    padding-top: 100px;
+    padding-bottom: 70px;
+}
+@media (max-width: 768px) {
+    .tech {
+        padding-top: 90px;
+        padding-bottom: 50px;
+    }
+}
+@media (max-width: 320px) {
+    .tech {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+}
+.tech__header {
+    font-size: 22px;
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+    padding-bottom: 23px;
+    font-weight: 400;
+    margin: auto;
+    max-width: 1140px;
+}
+@media (max-width: 768px) {
+    .tech__header {
+        max-width: 668px;
+    }
+}
+@media (max-width: 320px) {
+    .tech__header {
+        font-size: 18px;
+        max-width: 284px;
+    }
+}
+.tech__title-subtitle {
+    margin: 0;
+    padding: 0;
+}
+@media (max-width: 320px) {
+    .tech__title-subtitle {
+        font-size: 11px;
+        max-width: 292px;
+    }
+}
+.tech__title {
+    line-height: 58px;
+    font-size: 50px;
+    text-align: center;
+    font-weight: 400;
+    margin: 90px auto 26px;
+}
+@media (max-width: 768px) {
+    .tech__title {
+        margin-bottom: 22px;
+    }
+}
+@media (max-width: 320px) {
+    .tech__title {
+        font-size: 30px;
+        margin: 60px auto 24px;
+    }
+}
+.tech__subtitle {
+    line-height: 20px;
+    font-size: 14px;
+    max-width: 460px;
+    width: 100%;
+    text-align: center;
+    margin: auto auto 100px;
+}
+@media (max-width: 768px) {
+    .tech__subtitle {
+        margin-bottom: 83px;
+    }
+}
+@media (max-width: 320px) {
+    .tech__subtitle {
+        line-height: 16px;
+        font-size: 11px;
+        margin-bottom: 50px;
+    }
+}
+.tech__inform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tech__languages {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+@media (max-width: 320px) {
+    .tech__languages {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 84px 84px;
+        grid-template-rows: 57px 57px;
+    }
+}
+.tech__lang {
+    list-style: none;
+    background-color: #303030;
+    min-width: 90px;
+    min-height: 40px;
+    margin-right: 10px;
+    text-align: center;
+    padding-top: 20px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+@media (max-width: 320px) {
+    .tech__lang {
+        font-size: 12px;
+    }
+}
+

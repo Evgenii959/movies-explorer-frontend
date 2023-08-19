@@ -1,0 +1,28 @@
+.photo {
+    max-width: 1140px;
+    margin: auto;
+    padding-top: 70px;
+    display: grid;
+    grid-template-columns: 270px 270px 270px 270px;
+    row-gap: 38px;
+    column-gap: 20px;
+    padding-bottom: 50px;
+}
+@media (max-width: 1024px) {
+    .photo {
+        grid-template-columns: 339px 339px 339px;
+    }
+}
+@media (max-width: 768px) {
+    .photo {
+        grid-template-columns: 339px 339px;
+        max-width: 708px;
+        gap: 30px;
+    }
+}
+@media (max-width: 320px) {
+    .photo {
+        grid-template-columns: 300px;
+        max-width: 300px;
+    }
+}
