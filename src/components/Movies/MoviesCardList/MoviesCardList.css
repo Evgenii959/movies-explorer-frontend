@@ -7,22 +7,25 @@
     row-gap: 38px;
     column-gap: 20px;
     padding-bottom: 50px;
+    min-height: 470px;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .photo {
         grid-template-columns: 339px 339px 339px;
     }
 }
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
     .photo {
         grid-template-columns: 339px 339px;
         max-width: 708px;
         gap: 30px;
     }
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .photo {
         grid-template-columns: 300px;
         max-width: 300px;
+        padding-top: 50px;
+        padding-bottom: 60px;
     }
 }

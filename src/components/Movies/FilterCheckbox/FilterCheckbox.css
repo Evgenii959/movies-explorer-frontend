@@ -1,18 +1,19 @@
 .search__block-placeholder {
-    max-width: 233px;
+    max-width: 200px;
     width: 100%;
     display: flex;
     margin: auto;
     border-left: 1px solid #424242;
     padding-left: 22px;
+    padding-right: 0px;
     min-height: 40px;
     align-items: center;
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .search__block-placeholder {
         border: 0;
-        margin: 46px auto 45px;
-        padding: 0;
+        margin: 30px auto 36px;
+        padding-left: 10px;
         max-width: 170px;
     }
 }
@@ -20,12 +21,21 @@
     font-size: 13px;
     line-height: 18px;
     margin: 0;
-    padding: 0;
+}
+@media (max-width: 767px) {
+    .search__placeholder-description {
+      font-size: 11px;
+    }
 }
 .search__switch {
     margin-right: 21px;
     padding: 0;
     max-height: 20px;
+}
+@media (max-width: 767px) {
+    .search__switch {
+      margin-right: 13px;
+    }
 }
 input[type="checkbox"] {
     position: relative;

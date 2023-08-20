@@ -10,9 +10,11 @@ function Register() {
                     Добро пожаловать!
                 </h1>
                 <form className="profile__form profile__form_register">
-                    <div className="profile__inputs">
+                    <div className="profile__inputs profile__inputs_register">
                         <fieldset className="profile__block-input">
-                            <legend className="profile__block-name">Имя</legend>
+                            <legend className="profile__block-name">
+                                Имя
+                            </legend>
                             <input
                                 className="profile__input profile__input_register"
                                 type="text"

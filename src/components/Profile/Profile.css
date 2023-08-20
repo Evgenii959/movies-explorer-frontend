@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 74px;
 }
 @media (max-width: 768px) {
     .profile {
@@ -14,13 +13,6 @@
         margin-top: 70px;
     }
 }
-.profile {
-    margin-top: 16px;
-}
-.profile__register {
-    max-width: 396px;
-    margin: 0 auto;
-}
 .profile__title {
     font-size: 24px;
     font-weight: 500;
@@ -28,18 +20,6 @@
 }
 .profile__title_profile {
     margin-top: 74px;
-}
-.profile__title_register {
-    max-width: 396px;
-    width: 100%;
-    margin-bottom: 40px;
-}
-@media (max-width: 320px) {
-    .profile__title_register {
-        max-width: 260px;
-        text-align: center;
-        margin-bottom: 80px;
-    }
 }
 .profile__input-titles {
     width: 110px;
@@ -62,6 +42,7 @@
     width: 100%;
     margin: 125px auto 220px;
     display: flex;
+    font-size: 11px;
 }
 @media (max-width: 768px) {
     .profile__form {
@@ -96,17 +77,13 @@
     display: flex;
     flex-direction: column;
     max-width: 396px;
-    width: 100%;
 }
 .profile__input_name {
+    font-size: 500;
     padding-bottom: 19px;
     text-align: right;
     border: 0;
     border-bottom: 1px solid rgba(84, 84, 84, 0.7);
-}
-.profile__input_register {
-    text-align: left;
-    margin: 5px 0 10px;
 }
 .profile__input_email {
     padding-top: 16px;
@@ -125,55 +102,4 @@
     font-size: 13px;
     color: #ee3465;
     margin: 16px auto 40px;
-}
-.profile__form_register {
-    margin: 0;
-}
-.profile__button-register {
-    padding: 14px 0 14px;
-    border-radius: 3px;
-    background-color: #4285f4;
-    max-width: 396px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    width: 100%;
-    margin: 69px auto 16px;
-    color: #fff;
-}
-@media (max-width: 320px) {
-    .profile__button-register {
-        max-width: 260px;
-        margin: 222px auto 14px;
-    }
-}
-.profile__footer-register {
-    display: flex;
-}
-@media (max-width: 320px) {
-    .profile__footer-register {
-        margin-bottom: 30px;
-    }
-}
-.profile__question-register {
-    font-size: 14px;
-    font-weight: 400;
-    color: #8b8b8b;
-    margin: 0 6px 0 0;
-}
-@media (max-width: 320px) {
-    .profile__question-register {
-        font-size: 12px;
-    }
-}
-.profile__enter-register {
-    font-size: 14px;
-    color: #4285f4;
-    margin: 0;
-    text-decoration: none;
-}
-@media (max-width: 320px) {
-    .profile__enter-register {
-        font-size: 12px;
-    }
 }

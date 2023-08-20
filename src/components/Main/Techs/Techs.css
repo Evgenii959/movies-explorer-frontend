@@ -3,13 +3,13 @@
     padding-top: 100px;
     padding-bottom: 70px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .tech {
         padding-top: 90px;
-        padding-bottom: 50px;
+        padding-bottom: 80px;
     }
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .tech {
         padding-top: 70px;
         padding-bottom: 70px;
@@ -17,28 +17,29 @@
 }
 .tech__header {
     font-size: 22px;
-    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+    border-bottom: 1px solid #000000;
     padding-bottom: 23px;
     font-weight: 400;
     margin: auto;
     max-width: 1140px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .tech__header {
         max-width: 668px;
     }
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .tech__header {
         font-size: 18px;
         max-width: 284px;
+        padding-bottom: 28px;
     }
 }
 .tech__title-subtitle {
     margin: 0;
     padding: 0;
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .tech__title-subtitle {
         font-size: 11px;
         max-width: 292px;
@@ -51,31 +52,31 @@
     font-weight: 400;
     margin: 90px auto 26px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .tech__title {
         margin-bottom: 22px;
     }
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .tech__title {
         font-size: 30px;
-        margin: 60px auto 24px;
+        margin: 50px auto 14px;
     }
 }
 .tech__subtitle {
     line-height: 20px;
     font-size: 14px;
-    max-width: 460px;
-    width: 100%;
+    max-width: 500px;;
     text-align: center;
     margin: auto auto 100px;
+    padding: 0;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .tech__subtitle {
         margin-bottom: 83px;
     }
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .tech__subtitle {
         line-height: 16px;
         font-size: 11px;
@@ -93,7 +94,7 @@
     padding: 0;
     margin: 0;
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .tech__languages {
         display: grid;
         gap: 10px;
@@ -112,7 +113,7 @@
     border-radius: 10px;
     font-size: 14px;
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .tech__lang {
         font-size: 12px;
     }

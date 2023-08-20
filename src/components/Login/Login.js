@@ -35,13 +35,12 @@ function Login() {
                         </fieldset>
                     </div>
                 </form>
-                <Link
-                    to="/signin"
+                <button
                     className="profile__button-register"
                     type="button"
                 >
                     Войти
-                </Link>
+                </button>
                 <div className="profile__footer-register">
                     <h2 className="profile__question-register">
                         Ещё не зарегистрированы?

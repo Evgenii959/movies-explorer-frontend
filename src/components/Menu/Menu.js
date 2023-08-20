@@ -1,5 +1,4 @@
 import React from "react";
-import AccountIcon from "../../images/icon.svg";
 import { Link } from "react-router-dom"; 
 
 const Menu = ({ items, active, setActive }) => {
@@ -20,10 +19,8 @@ const Menu = ({ items, active, setActive }) => {
                 </ul>
                 <div className="menu__account">
                     <Link to="/profile" className="menu__account-title">Аккаунт</Link>
-                    <img
-                        src={AccountIcon}
+                    <div
                         className="menu__account-icon"
-                        alt="Аккаунт"
                     />
                 </div>
             </div>

@@ -1,6 +1,3 @@
-import Logo from "../../../images/logo.svg";
-import AccountIcon from "../../../images/icon.svg";
-import Strings from "../../../images/палки.svg";
 import Menu from "../../Menu/Menu.js";
 import { useState } from "react";
 import { Link } from "react-router-dom"; 
@@ -16,10 +13,8 @@ function HeaderMovies() {
         <>
             <header className="header header__movies">
                 <div className="header__block">
-                    <img
+                    <div
                         className="header__logo"
-                        src={Logo}
-                        alt="Логотип смайл"
                     />
                     <div className="header__container">
                         <Link to="/movies" className="header__films">
@@ -34,16 +29,12 @@ function HeaderMovies() {
                     <Link to="/profile" className="header__account">
                         Аккаунт
                     </Link>
-                    <img
-                        src={AccountIcon}
+                    <div
                         className="header__icon"
-                        alt="Аккаунт"
                     />
-                    <img
+                    <div
                         className="header__strings"
                         onClick={() => setMenuActive(!menuActive)}
-                        src={Strings}
-                        alt="Палки"
                     />
                 </div>
             </header>

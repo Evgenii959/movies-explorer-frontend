@@ -4,16 +4,16 @@
     max-width: 1140px;
     margin: auto;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .student {
         padding-top: 90px;
         padding-bottom: 91px;
     }
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .student {
         padding-top: 70px;
-        padding-bottom: 70px;
+        padding-bottom: 25px;
     }
 }
 .student__header {
@@ -23,12 +23,12 @@
     font-weight: 400;
     margin: auto;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .student__header {
         max-width: 668px;
     }
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .student__header {
         font-size: 18px;
         max-width: 292px;
@@ -39,12 +39,12 @@
     justify-content: space-between;
     margin: auto;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .student__card {
         max-width: 668px;
     }
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .student__card {
         flex-direction: column-reverse;
         max-width: 292px;
@@ -56,13 +56,13 @@
     font-weight: 400;
     margin: 66px auto 18px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .student__name {
         font-size: 40px;
         line-height: 40px;
     }
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .student__name {
         font-size: 30px;
         margin: 40px auto 20px;
@@ -74,13 +74,13 @@
     font-weight: 500;
     margin: 0;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .student__profession {
         font-size: 12px;
         line-height: 18px;
     }
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .student__profession {
         font-size: 11px;
         line-height: 16px;
@@ -92,17 +92,18 @@
     font-weight: 400;
     margin: 26px auto 99px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .student__about {
         font-size: 12px;
         line-height: 18px;
+        margin: 20px auto 40px;
+        max-width: 364px;
     }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .student__about {
         font-size: 11px;
         line-height: 16px;
-        margin: 20px auto 40px;
     }
 }
 .student__from {
@@ -110,21 +111,21 @@
     font-weight: 500;
     margin: 0;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .student__from {
-        font-size: 18px;
-        line-height: 20px;
+        margin-top: 87px;
     }
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .student__from {
         font-size: 14px;
+        margin-top: 40px;
     }
 }
 .student__text {
     max-width: 600px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .student__text {
         max-width: 364px;
     }
@@ -136,13 +137,13 @@
     margin-top: 66px;
     border-radius: 10px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .student__image {
         max-width: 255px;
         max-height: 307px;
     }
 }
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .student__image {
         margin-top: 60px;
         max-width: 292px;
