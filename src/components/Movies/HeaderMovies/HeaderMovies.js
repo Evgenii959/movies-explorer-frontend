@@ -13,9 +13,7 @@ function HeaderMovies() {
         <>
             <header className="header header__movies">
                 <div className="header__block">
-                    <div
-                        className="header__logo"
-                    />
+                    <Link to="/" className="header__logo" />
                     <div className="header__container">
                         <Link to="/movies" className="header__films">
                             Фильмы
@@ -29,9 +27,7 @@ function HeaderMovies() {
                     <Link to="/profile" className="header__account">
                         Аккаунт
                     </Link>
-                    <div
-                        className="header__icon"
-                    />
+                    <div className="header__icon" />
                     <div
                         className="header__strings"
                         onClick={() => setMenuActive(!menuActive)}

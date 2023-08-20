@@ -1,5 +1,5 @@
-import NavTab from "../Portfolio/Portfolio.js";
 import Student from "../../../images/student.jpg";
+import Portfolio from "../Portfolio/Portfolio.js";
 
 function AboutMe() {
     return (
@@ -29,7 +29,7 @@ function AboutMe() {
                         alt="Студент"
                     />
                 </div>
-                <NavTab />
+                <Portfolio />
             </section>
         </>
     );

@@ -4,7 +4,7 @@ function Header() {
     return (
         <>
             <header className="header">
-                <div className="header__logo"/>
+                <Link to="/" className="header__logo"/>
                 <div className="header__enter-auth">
                     <Link to="/signup" className="header__auth">
                         Регистрация

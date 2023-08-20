@@ -7,12 +7,12 @@
 }
 @media (max-width: 1200px) {
     .promo {
-      padding: 300px 44px 70px;
+        padding: 300px 44px 70px;
     }
 }
 @media (max-width: 767px) {
     .promo {
-      padding: 0;
+        padding: 0;
     }
 }
 .promo__title {
@@ -39,7 +39,7 @@
     }
 }
 .promo__image {
-    margin-right: 70px;
+    margin-right: 60px;
     max-width: 722px;
     width: 100%;
     min-height: 244px;
@@ -47,20 +47,15 @@
     position: absolute;
     right: 0;
 }
-@media (max-width: 1200px) {
-    .promo__image {
-      padding-top: 140px;
-      min-width: 680px;
-      position: static;
-    }
-}
 @media (max-width: 767px) {
     .promo__image {
-      min-width: 320px;
-      object-fit: cover;
-      background-size: cover;
-      padding-bottom: 20px;
-      padding-top: 0;
-      margin: 0;
+        position: static;
+        padding-top: 140px;
+        min-width: 320px;
+        object-fit: cover;
+        background-size: cover;
+        padding-bottom: 20px;
+        padding-top: 0;
+        margin: 0;
     }
 }

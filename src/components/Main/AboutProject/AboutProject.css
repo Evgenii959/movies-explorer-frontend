@@ -1,21 +1,17 @@
 .project {
-    max-height: 608px;
     padding-top: 110px;
-    padding-bottom: 110px;
     margin: auto;
     max-width: 1140px;
 }
 @media (max-width: 1200px) {
     .project {
         padding-top: 90px;
-        padding-bottom: 70px;
         max-width: 668px;
     }
 }
 @media (max-width: 767px) {
     .project {
         padding-top: 70px;
-        padding-bottom: 70px;
     }
 }
 .project__header {
@@ -38,17 +34,22 @@
     grid-template-rows: 150px 150px;
     column-gap: 40px;
     row-gap: 60px;
+    margin: auto;
+    padding-bottom: 90px;
 }
 @media (max-width: 1200px) {
     .project__block {
-         grid-template-columns: 319px;
+        grid-template-columns: 319px 319px;
         grid-template-rows: 150px;
         column-gap: 30px;
-        row-gap: 80px;
+        row-gap: 120px;
+        padding-bottom: 100px;
     }
 }
 @media (max-width: 767px) {
     .project__block {
+        max-width: 284px;
+        grid-template-columns: 284px;
         row-gap: 18px;
     }
 }
@@ -127,6 +128,7 @@
 }
 .project__schedule-title_green {
     background-color: #3ddc84;
+    color: #000000;
 }
 .project__schedule-subtitle {
     font-size: 14px;

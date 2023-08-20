@@ -80,6 +80,8 @@ ul li {
     right: 22.44px;
     z-index: 3;
     cursor: pointer;
+    background-color: #202020;
+    border: 0;
 }
 @media (max-width: 767px) {
     .menu__cross {

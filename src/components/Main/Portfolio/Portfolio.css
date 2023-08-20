@@ -41,9 +41,14 @@
     margin: 0 auto 20px;
     display: flex;
     justify-content: space-between;
+    text-decoration: none;
+    color: #ffffff;
 }
 .portfolio__transit:last-child {
     border: none;
+}
+.portfolio__transit:hover {
+    opacity: 0.6;
 }
 @media (max-width: 1200px) {
     .portfolio__transit {

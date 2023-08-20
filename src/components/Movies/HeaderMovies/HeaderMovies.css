@@ -1,20 +1,10 @@
 .header__movies {
     background-color: #202020;
-    padding: 18px 0;
+    padding: 3% 4%;
     max-width: 1140px;
-    width: 100%;
-    border: 0;
     box-shadow: none;
-}
-@media (max-width: 1023px) {
-    .header__movies {
-        max-width: 708px;
-    }
-}
-@media (max-width: 767px) {
-    .header__movies {
-        max-width: 292px;
-    }
+    margin: auto;
+
 }
 .header__container {
     display: flex;
@@ -26,6 +16,9 @@
     font-weight: 500;
     text-decoration: none;
     color: #fff;
+}
+.header__films:hover {
+    opacity: 0.6;
 }
 @media (max-width: 768px) {
     .header__films {
@@ -42,6 +35,9 @@
     margin: auto 8px auto 0;
     color: #fff;
     text-decoration: none;
+}
+.header__account:hover {
+    opacity: 0.6;
 }
 @media (max-width: 768px) {
     .header__account {

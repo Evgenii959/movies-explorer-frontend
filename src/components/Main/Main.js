@@ -9,10 +9,12 @@ function Main() {
     return (
         <>
             <Header />
-            <Promo />
-            <Project />
-            <Techs />
-            <AboutMe />
+            <main>
+                <Promo />
+                <Project />
+                <Techs />
+                <AboutMe />
+            </main>
             <Footer />
         </>
     );

@@ -7,8 +7,10 @@ function Main() {
     return (
         <>
             <HeaderMovies />
-            <SearchForm />
-            <MoviesCardList />
+            <main>
+                <SearchForm />
+                <MoviesCardList />
+            </main>
             <Footer />
         </>
     );

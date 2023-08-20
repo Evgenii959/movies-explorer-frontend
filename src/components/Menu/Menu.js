@@ -8,7 +8,7 @@ const Menu = ({ items, active, setActive }) => {
             onClick={() => setActive(!active)}
         >
             <div className="menu__background" />
-            <div className="menu__cross" />
+            <button className="menu__cross"/>
             <div className="menu__content" onClick={(e) => e.stopPropagation()}>
                 <ul className="menu__content-links">
                     {items.map((item) => (

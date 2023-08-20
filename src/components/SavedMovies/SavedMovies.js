@@ -8,10 +8,12 @@ function Main() {
     return (
         <>
             <HeaderMovies />
-            <SearchForm />
-            <MoviesCardList>
-                <MoviesCard />
-            </MoviesCardList>
+            <main>
+                <SearchForm />
+                <MoviesCardList>
+                    <MoviesCard />
+                </MoviesCardList>
+            </main>
             <Footer />
         </>
     );

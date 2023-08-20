@@ -32,6 +32,9 @@
     opacity: 1;
 }
 .photo__heart {
+    background-image: url(../../../images/heart.svg);
+    height: 100%;
+    background-repeat: no-repeat;
     margin: 7px;
 }
 .photo__delete {
@@ -52,6 +55,10 @@
     text-align: center;
     font-size: 12px;
     font-weight: 500px;
+    cursor: pointer;
+}
+.photo__addMoviesCard:hover {
+    opacity: 0.6;
 }
 @media (max-width: 767px) {
     .photo__addMoviesCard {

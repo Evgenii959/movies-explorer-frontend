@@ -1,14 +1,9 @@
-import Logo from "../../images/logo.svg";
-
+import { Link } from "react-router-dom";
 function RegisterHeader() {
     return (
         <>
             <header className="header header__movies header__register">
-                <img
-                    className="header__logo header__logo_register"
-                    src={Logo}
-                    alt="Логотип смайл"
-                />
+                <Link to="/" className="header__logo header__logo_register" />
             </header>
         </>
     );

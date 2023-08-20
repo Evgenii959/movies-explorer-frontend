@@ -41,6 +41,9 @@
     color: #4285F4;
     text-decoration: none;
 }
+.notFound__back:hover {
+    opacity: 0.6;
+}
 @media (max-width: 320px) {
     .notFound__back {
       font-size: 12px;
