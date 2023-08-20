@@ -11,8 +11,8 @@ function Profile() {
                     </h1>
                     <form className="profile__form">
                         <div className="profile__input-titles">
-                            <div className="profile__title-name">Имя</div>
-                            <div className="profile__title-email">E-mail</div>
+                            <p className="profile__title-name">Имя</p>
+                            <p className="profile__title-email">E-mail</p>
                         </div>
                         <div className="profile__inputs">
                             <input
