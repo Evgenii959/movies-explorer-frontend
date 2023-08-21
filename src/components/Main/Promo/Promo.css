@@ -38,6 +38,11 @@
         padding-bottom: 60px;
     }
 }
+@media (max-width: 320px) {
+    .promo__title {
+        padding-top: 193px;
+    }
+}
 .promo__image {
     margin-right: 60px;
     max-width: 722px;

@@ -1,22 +1,26 @@
 .search {
     padding-top: 70px;
     padding-bottom: 70px;
+    padding-left: 3%;
+    padding-right: 3%;
     max-width: 1140px;
-    width: 100%;
     border-bottom: 1px solid rgba(84, 84, 84, 0.7);
     margin: auto;
 }
 @media (max-width: 1023px) {
     .search {
-        max-width: 708px;
         padding-top: 80px;
         padding-bottom: 109px;
     }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+    .search {
+        padding-bottom: 0;
+    }
+}
+@media (max-width: 320px) {
     .search {
         max-width: 292px;
-        padding-bottom: 0;
     }
 }
 .search__button {
@@ -38,13 +42,13 @@
 }
 @media (max-width: 1023px) {
     .search__button {
-      margin-right: 19px;
+        margin-right: 19px;
     }
 }
 @media (max-width: 767px) {
     .search__button {
-      max-width: 58px;
-      margin: 19px;
+        max-width: 58px;
+        margin: 19px;
     }
 }
 .search__icon {
@@ -54,7 +58,7 @@
 }
 @media (max-width: 767px) {
     .search__icon {
-      display: none;
+        display: none;
     }
 }
 .search__input {
@@ -65,8 +69,8 @@
 }
 @media (max-width: 767px) {
     .search__input {
-      margin-left: 19px;
-      font-size: 14px;
+        margin-left: 19px;
+        font-size: 14px;
     }
 }
 .search__input-button {
@@ -76,7 +80,7 @@
 }
 @media (max-width: 767px) {
     .search__input-button {
-        background-color: #2F2F2F;
+        background-color: #2f2f2f;
         border-radius: 9px;
     }
 }
@@ -86,7 +90,7 @@
     min-height: 72px;
     display: flex;
     border-radius: 9px;
-    background-color: #2F2F2F;
+    background-color: #2f2f2f;
 }
 @media (max-width: 767px) {
     .search__string {

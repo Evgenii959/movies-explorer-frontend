@@ -4,25 +4,25 @@ function Portfolio() {
             <p className="portfolio__title">Портфолио</p>
             <nav className="portfolio__list-transit">
                 <a
-                    href="https://www.airbnb.ru/"
+                    href="https://evgenii959.github.io/how-to-learn/"
                     className="portfolio__transit"
-                    target="Airnbnb"
+                    target="Научиться учиться"
                 >
                     Статичный сайт
                     <span className="portfolio__arrow">&#8594;</span>
                 </a>
                 <a
-                    href="https://www.mdcraftbeerfestival.com/"
+                    href="https://evgenii959.github.io/russian-travel/"
                     className="portfolio__transit"
-                    target="mdcraft"
+                    target="Путешествия"
                 >
                     Адаптивный сайт
                     <span className="portfolio__arrow">&#8594;</span>
                 </a>
                 <a
-                    href="https://dribbble.com/shots"
+                    href="https://evgenii959.github.io/mesto/"
                     className="portfolio__transit"
-                    target="dribbble"
+                    target="Жак Ив Кусто"
                 >
                     Одностраничное приложение
                     <span className="portfolio__arrow">&#8594;</span>

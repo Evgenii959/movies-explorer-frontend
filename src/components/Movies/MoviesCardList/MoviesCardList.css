@@ -8,24 +8,25 @@
     column-gap: 20px;
     padding-bottom: 50px;
     min-height: 470px;
+    width: 100%;
 }
 @media (max-width: 1200px) {
-    .photo {
-        grid-template-columns: 339px 339px 339px;
-    }
-}
-@media (max-width: 1023px) {
     .photo {
         grid-template-columns: 339px 339px;
         max-width: 708px;
         gap: 30px;
     }
 }
-@media (max-width: 767px) {
+@media (max-width: 760px) {
     .photo {
         grid-template-columns: 300px;
-        max-width: 300px;
         padding-top: 50px;
         padding-bottom: 60px;
+        max-width: 300px;
+    }
+}
+@media (max-width: 320px) {
+    .photo {
+        max-width: 300px;
     }
 }

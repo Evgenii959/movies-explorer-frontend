@@ -1,5 +1,4 @@
 import OnePicture from "../../images/1q.jpg";
-import Cross from "../../images/крест.svg";
 
 function MoviesCard() {
     return (
@@ -13,10 +12,9 @@ function MoviesCard() {
                 <div className="photo__title-toggle">
                     <h2 className="photo__title">33 слова о дизайне</h2>
                     <div className="photo__toggle photo__toggle_delete">
-                        <img
+                        <button
                             className="photo__delete"
-                            src={Cross}
-                            alt="крест"
+                            type="button"
                         />
                     </div>
                 </div>

@@ -12,8 +12,9 @@ function MoviesCard() {
                 <div className="photo__title-toggle">
                     <h2 className="photo__title">33 слова о дизайне</h2>
                     <div className="photo__toggle">
-                        <div
+                        <button
                             className="photo__heart"
+                            type="button"
                         />
                     </div>
                 </div>

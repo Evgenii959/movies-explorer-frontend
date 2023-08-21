@@ -30,10 +30,12 @@
     padding: 0;
 }
 .profile__title-name {
+    margin: 0;
     padding-bottom: 19px;
     border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 .profile__title-email {
+    margin: 0;
     padding-top: 16px;
 }
 .profile__form {

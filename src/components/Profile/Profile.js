@@ -18,10 +18,12 @@ function Profile() {
                             <input
                                 className="profile__input profile__input_name"
                                 placeholder="Виталий"
+                                required
                             />
                             <input
                                 className="profile__input profile__input_email"
                                 placeholder="pochta@yandex.ru"
+                                required
                             />
                         </div>
                     </form>

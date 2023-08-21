@@ -4,7 +4,11 @@
     max-width: 1140px;
     box-shadow: none;
     margin: auto;
-
+}
+@media (max-width: 320px) {
+    .header__movies {
+      padding-top: 6%;
+    }
 }
 .header__container {
     display: flex;
