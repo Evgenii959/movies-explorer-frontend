@@ -1,0 +1,75 @@
+.photo__item {
+    width: 100%;
+}
+@media (max-width: 1023px) {
+    .photo__item {
+        max-width: 339px;
+    }
+}
+.photo__title {
+    font-size: 13px;
+    font-weight: 500;
+    margin: 14px 0 29px;
+}
+.photo__duration {
+    font-size: 11px;
+    margin: 6px 0 0;
+    color: #8b8b8b;
+}
+.photo__toggle {
+    background-color: #313131;
+    border-radius: 50%;
+    max-height: 23px;
+    max-width: 24px;
+    width: 100%;
+    margin-top: 11px;
+    cursor: pointer;
+}
+.photo__toggle_delete {
+    opacity: 0;
+}
+.photo__toggle_delete:hover {
+    opacity: 1;
+}
+.photo__heart {
+    background-image: url(../../../images/heart.svg);
+    max-height: 18px;
+    background-repeat: no-repeat;
+    margin: 7px;
+    border: 0;
+    background-color: #313131;
+    height: 8.5px;
+    cursor: pointer;
+}
+.photo__delete {
+    background-image: url(../../../images/крест.svg);
+    margin: 7px 4px;
+    border: 0;
+    height: 9px;
+    background-color: #313131;
+}
+.photo__title-toggle {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+}
+.photo__addMoviesCard {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 6px;
+    background-color: #2f2f2f;
+    margin: 0 auto 159px;
+    max-width: 320px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500px;
+    cursor: pointer;
+}
+.photo__addMoviesCard:hover {
+    opacity: 0.6;
+}
+@media (max-width: 767px) {
+    .photo__addMoviesCard {
+        max-width: 240px;
+    }
+}

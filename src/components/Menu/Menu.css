@@ -1,0 +1,117 @@
+.menu {
+    position: fixed;
+    transform: translateX(-300%);
+    right: 0;
+    height: 100vh;
+    width: 520px;
+    top: 0;
+    z-index: 2;
+}
+@media (max-width: 767px) {
+    .menu {
+        max-width: 320px;
+    }
+}
+.menu.active {
+    transform: translateX(0%);
+    height: 100vh;
+}
+.menu__background {
+    width: 100vw;
+    height: 100vh;
+    right: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+}
+.menu__content {
+    padding-top: 119px;
+    padding-bottom: 150px;
+    height: 100vh;
+    max-height: 810px;
+    background-color: #202020;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    z-index: 3;
+}
+@media (max-width: 767px) {
+    .menu__content {
+        max-height: 630px;
+        padding-top: 99px;
+    }
+}
+.menu__content-links a {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 26px;
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    margin-left: -40px;
+}
+.menu__content-links a:after {
+    display: block;
+    content: "";
+    height: 2px;
+    width: 0%;
+    background-color: #fff;
+}
+.menu__content-links a:hover:after,
+.menu__content-links a:focus:after {
+    width: 100%;
+}
+.menu__content-links a:hover {
+    opacity: 0.8;
+}
+ul li {
+    display: table-row;
+    padding: 0;
+}
+.menu__cross {
+    background-image: url(../../images/menu-cross.svg);
+    min-height: 32px;
+    width: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 22.44px;
+    right: 22.44px;
+    z-index: 3;
+    cursor: pointer;
+    background-color: #202020;
+    border: 0;
+}
+@media (max-width: 767px) {
+    .menu__cross {
+        top: 13.44px;
+        right: 13.44px;
+    }
+}
+.menu__account {
+    display: flex;
+}
+.menu__account-icon {
+    background-image: url(../../images/icon.svg);
+    background-repeat: no-repeat;
+    width: 26px;
+    min-height: 26px;
+    background-color: #313131;
+    border-radius: 50%;
+    background-position: center;
+}
+@media (max-width: 767px) {
+    .menu__account {
+      font-size: 13px;
+      line-height: 12px;
+    }
+}
+.menu__account-title {
+    font-size: 13px;
+    line-height: 11px;
+    margin-top: 5px;
+    margin-right: 14.81px;
+    text-decoration: none;
+    color: #fff;
+}
