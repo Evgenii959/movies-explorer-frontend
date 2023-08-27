@@ -19,9 +19,13 @@ function Login() {
                                 className="profile__input profile__input_register"
                                 type="text"
                                 name="email"
-                                placeholder="pochta@yandex.ru"
+                                placeholder="E-mail"
+                                title="Что-то пошло не так..."
                                 required
                             />
+                            <span className="profile__name-error">
+                                Что-то пошло не так...
+                            </span>
                         </fieldset>
                         <fieldset className="profile__block-input">
                             <legend className="profile__block-name">
@@ -30,10 +34,14 @@ function Login() {
                             <input
                                 className="profile__input profile__input_register"
                                 type="text"
-                                name="password"
-                                placeholder="asdcas"
+                                name="Пароль"
+                                placeholder="**********"
+                                title="Что-то пошло не так..."
                                 required
                             />
+                            <span className="profile__name-error">
+                                Что-то пошло не так...
+                            </span>
                         </fieldset>
                         <button
                             className="profile__button-register"

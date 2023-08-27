@@ -17,14 +17,22 @@ function Profile() {
                         <div className="profile__inputs">
                             <input
                                 className="profile__input profile__input_name"
-                                placeholder="Виталий"
+                                placeholder="Имя"
+                                title="Что-то пошло не так..."
                                 required
                             />
+                            <span className="profile__name-error">
+                                Что-то пошло не так...
+                            </span>
                             <input
                                 className="profile__input profile__input_email"
-                                placeholder="pochta@yandex.ru"
+                                placeholder="E-mail"
+                                title="Что-то пошло не так..."
                                 required
                             />
+                            <span className="profile__name-error">
+                                Что-то пошло не так...
+                            </span>
                         </div>
                     </form>
                     <p className="profile__edit">Редактировать</p>

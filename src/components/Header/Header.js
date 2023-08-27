@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
-function Header() {
+function Header(props) {
     return (
         <>
             <header className="header">
-                <Link to="/" className="header__logo"/>
+                <Link to="/" className="header__logo" />
                 <div className="header__enter-auth">
                     <Link to="/signup" className="header__auth">
                         Регистрация
