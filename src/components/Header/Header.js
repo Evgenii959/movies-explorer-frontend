@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Header(props) {
+function Header() {
     return (
         <>
             <header className="header">

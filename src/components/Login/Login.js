@@ -1,7 +1,19 @@
 import { Link } from "react-router-dom";
 import RegisterHeader from "../Register/RegisterHeader.js";
+import { useState } from "react";
 
-function Login() {
+function Login(props) {
+      const [email, setEmail] = useState({ email: "" });
+      const [password, setPassword] = useState({ password: "" });
+
+      function handleLoginEmail(event) {
+          setEmail(event.target.value);
+      }
+
+      function handleLoginPassword(event) {
+          setPassword(event.target.value);
+      }
+
     return (
         <>
             <RegisterHeader />
@@ -10,7 +22,10 @@ function Login() {
                     <h1 className="profile__title profile__title_register">
                         Рады видеть!
                     </h1>
-                    <form className="profile__form profile__form_register">
+                    <form
+                        className="profile__form profile__form_register"
+                        onSubmit={props.handleLogin({ email, password })}
+                    >
                         <fieldset className="profile__block-input">
                             <legend className="profile__block-name">
                                 E-mail
@@ -21,6 +36,8 @@ function Login() {
                                 name="email"
                                 placeholder="E-mail"
                                 title="Что-то пошло не так..."
+                                onChange={handleLoginEmail}
+                                value={email.email}
                                 required
                             />
                             <span className="profile__name-error">
@@ -37,6 +54,8 @@ function Login() {
                                 name="Пароль"
                                 placeholder="**********"
                                 title="Что-то пошло не так..."
+                                onChange={handleLoginPassword}
+                                value={password.password}
                                 required
                             />
                             <span className="profile__name-error">

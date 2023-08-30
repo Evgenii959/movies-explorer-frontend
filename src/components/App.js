@@ -9,19 +9,21 @@ import SavedMovies from "./SavedMovies/SavedMovies.js";
 import Menu from "./Menu/Menu.js";
 import { useState, useEffect } from "react";
 import { ProtectedRoute } from "./ProtectedRoute.js";
-import { api } from "../utils/MainApi.js";
-import { register, login } from "../utils/MoviesApi.js";
+import { getMovies } from "../utils/MoviesApi.js";
+import { register, login, editUser } from "../utils/MainApi.js";
 import { UserContext } from "../contexts/CurrentUserContext";
 
 function App() {
     const [menuActive, setMenuActive] = useState(false);
     const [cards, setCards] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [currentUser, setCurrentUser] = useState({});
     const navigate = useNavigate();
 
     useEffect(() => {
-        api.getInitialMovies()
+        getMovies()
             .then(res => {
+                console.log(res);
                 setCards(res);
             })
             .catch(err => {
@@ -31,8 +33,10 @@ function App() {
 
     const handleRegister = ({ name, email, password }) => event => {
         event.preventDefault();
-        register(name, email, password)
+        register({ name, email, password })
             .then(res => {
+                console.log(res);
+                console.log(res);
                 if (res !== false) {
                     navigate("/signin", { replace: true });
                 }
@@ -42,12 +46,14 @@ function App() {
             });
     };
 
-    const handleLogin = ({ password, email }) => event => {
+    const handleLogin = ({ email, password }) => event => {
         event.preventDefault();
-        login(password, email)
+        login(email, password)
             .then(res => {
                 if (res !== false) {
                     navigate("/", { replace: true });
+                    setIsLoggedIn(true);
+                    localStorage.setItem("jwt", res.token);
                 }
             })
             .catch(err => {
@@ -56,13 +62,28 @@ function App() {
             });
     };
 
+    function handleUpdateUser(user) {
+        console.log(user);
+        editUser(user)
+            .then(res => {
+                setCurrentUser(res);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
+    function handleUserLeave() {
+        localStorage.removeItem("jwt");
+    }
+
     const items = [
         { value: "Главная", href: "/" },
         { value: "Фильмы", href: "/movies" },
         { value: "Сохраненные фильмы", href: "/saved-movies" }
     ];
     return (
-        <UserContext.Provider>
+        <UserContext.Provider value={currentUser}>
             <Routes>
                 <Route
                     path="/"
@@ -98,7 +119,13 @@ function App() {
                 />
                 <Route
                     path="/profile"
-                    element={<ProtectedRoute element={Profile} />}
+                    element={
+                        <ProtectedRoute
+                            element={Profile}
+                            onUpdateUser={handleUpdateUser}
+                            handleUserLeave={handleUserLeave}
+                        />
+                    }
                 />
                 <Route path="*" element={<NotFound />} />
             </Routes>

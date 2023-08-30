@@ -1,22 +1,10 @@
-export const BASE_URL = "http://frontend-evgeny.nomoredomains.sbs";
+export const BASE_URL = "https://api.nomoreparties.co/beatfilm-movies";
 
-export function register(name, email, password) {
-    return fetch(`${BASE_URL}/signup`, {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password })
+export function getMovies() {
+    return fetch(`${BASE_URL}`, {
+        headers: { "Content-Type": "application/json" }
     }).then(getResponseData);
 }
-
-export function login(email, password) {
-           return fetch(`${BASE_URL}/signin`, {
-               method: "POST",
-               credentials: "include",
-               headers: { "Content-Type": "application/json" },
-               body: JSON.stringify({ email, password })
-           }).then(getResponseData);
-       }
 
 function getResponseData(res) {
     if (!res.ok) {

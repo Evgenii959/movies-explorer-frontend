@@ -1,31 +1,9 @@
 import { NavLink } from "react-router-dom";
 import RegisterHeader from "../Register/RegisterHeader.js";
 import { useState } from "react";
-import * as MoviesApi from "../../utils/MoviesApi.js";
 
-function Register() {
-    const [formValue, setFormValue] = useState({
-        name: "",
-        email: "",
-        password: ""
-    });
-
-    const handleChange = e => {
-        const { name, value } = e.target;
-        setFormValue({
-            ...formValue,
-            [name]: value
-        });
-    };
-
-    const handleSubmit = e => {
-        const { name, email, password } = formValue;
-        e.preventDefault();
-        MoviesApi.register(name, email, password).then(() => {
-            console.log("data")
-        });
-    };
-    /*     const [name, setName] = useState({ name: "" });
+function Register(props) {
+    const [name, setName] = useState({ name: "" });
     const [email, setEmail] = useState({ email: "" });
     const [password, setPassword] = useState({ password: "" });
 
@@ -39,7 +17,7 @@ function Register() {
 
     function handlePassword(event) {
         setPassword(event.target.value);
-    } */
+    }
 
     return (
         <>
@@ -50,8 +28,7 @@ function Register() {
                 </h1>
                 <form
                     className="profile__form profile__form_register"
-                    onSubmit={handleSubmit}
-                    /*     onSubmit={props.handleRegister({ name, email, password })} */
+                    onSubmit={props.handleRegister({ name, email, password })}
                 >
                     <fieldset className="profile__block-input">
                         <legend className="profile__block-name">Имя</legend>
@@ -60,10 +37,9 @@ function Register() {
                             type="text"
                             name="name"
                             placeholder="Имя"
-                            onChange={handleChange}
-                            value={formValue.name}
                             title="Что-то пошло не так..."
-                            /*          onChange={handleName} */
+                            onChange={handleName}
+                            value={name.name}
                             required
                         />
                         <span className="profile__name-error">
@@ -77,10 +53,9 @@ function Register() {
                             type="text"
                             name="email"
                             placeholder="E-mail"
-                            onChange={handleChange}
-                            value={formValue.email}
                             title="Что-то пошло не так..."
-                            /*        onChange={handleEmail} */
+                            onChange={handleEmail}
+                            value={email.email}
                             required
                         />
                         <span className="profile__name-error">
@@ -94,10 +69,9 @@ function Register() {
                             type="text"
                             name="password"
                             placeholder="***********"
-                            onChange={handleChange}
-                            value={formValue.password}
                             title="Что-то пошло не так..."
-                            /*        onChange={handlePassword} */
+                            onChange={handlePassword}
+                            value={password.password}
                             required
                         />
                         <span className="profile__name-error">
