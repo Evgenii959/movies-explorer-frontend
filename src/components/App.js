@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 /* import Main from "./Main/Main.js"; */
 import Movies from "./Movies/Movies.js";
 import Register from "./Register/Register.js";
@@ -10,7 +10,12 @@ import Menu from "./Menu/Menu.js";
 import { useState, useEffect } from "react";
 import { ProtectedRoute } from "./ProtectedRoute.js";
 import { getMovies } from "../utils/MoviesApi.js";
-import { register, login, editUser } from "../utils/MainApi.js";
+import {
+    register,
+    login,
+    editUser,
+    changeLikeCardStatus
+} from "../utils/MainApi.js";
 import { UserContext } from "../contexts/CurrentUserContext";
 
 function App() {
@@ -20,10 +25,10 @@ function App() {
     const [currentUser, setCurrentUser] = useState({});
     const navigate = useNavigate();
 
+
     useEffect(() => {
         getMovies()
             .then(res => {
-                console.log(res);
                 setCards(res);
             })
             .catch(err => {
@@ -35,8 +40,6 @@ function App() {
         event.preventDefault();
         register({ name, email, password })
             .then(res => {
-                console.log(res);
-                console.log(res);
                 if (res !== false) {
                     navigate("/signin", { replace: true });
                 }
@@ -46,24 +49,20 @@ function App() {
             });
     };
 
-    const handleLogin = ({ email, password }) => event => {
-        event.preventDefault();
-        login(email, password)
+    const handleLogin = ({ email, password }) => {
+        login({ email, password })
             .then(res => {
                 if (res !== false) {
-                    navigate("/", { replace: true });
+                    navigate("/movies", { replace: true });
                     setIsLoggedIn(true);
-                    localStorage.setItem("jwt", res.token);
                 }
             })
             .catch(err => {
                 console.log(err);
-                setIsLoggedIn(false);
             });
     };
 
     function handleUpdateUser(user) {
-        console.log(user);
         editUser(user)
             .then(res => {
                 setCurrentUser(res);
@@ -85,7 +84,7 @@ function App() {
     return (
         <UserContext.Provider value={currentUser}>
             <Routes>
-                <Route
+                {/*                 <Route
                     path="/"
                     element={
                         isLoggedIn ? (
@@ -94,7 +93,7 @@ function App() {
                             <Navigate to="/signin" replace />
                         )
                     }
-                />
+                /> */}
                 <Route
                     path="/movies"
                     element={

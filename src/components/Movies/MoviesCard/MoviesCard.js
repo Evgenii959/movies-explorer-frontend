@@ -1,16 +1,19 @@
-import OnePicture from "../../../images/1q.jpg";
+function MoviesCard(props) {
+    const hours = Math.floor(props.element.duration / 60);
+    const minutes = props.element.duration % 60;
 
-function MoviesCard() {
     return (
         <>
             <div className="photo__container">
-                <img
-                    className="photo__item"
-                    src={OnePicture}
-                    alt="Слова о дизайне"
-                />
+                <a href={props.element.trailerLink} target="blank">
+                    <img
+                        className="photo__item"
+                        src={`https://api.nomoreparties.co/${props.element.image.url}`}
+                        alt={props.element.description}
+                    />
+                </a>
                 <div className="photo__title-toggle">
-                    <h2 className="photo__title">33 слова о дизайне</h2>
+                    <h2 className="photo__title">{props.element.nameRU}</h2>
                     <div className="photo__toggle">
                         <button
                             className="photo__heart"
@@ -18,7 +21,9 @@ function MoviesCard() {
                         />
                     </div>
                 </div>
-                <p className="photo__duration">1ч 42м</p>
+                <p className="photo__duration">
+                    {hours > 0 ? `${hours}ч` : ""} {minutes}мин
+                </p>
             </div>
         </>
     );

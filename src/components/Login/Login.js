@@ -3,16 +3,21 @@ import RegisterHeader from "../Register/RegisterHeader.js";
 import { useState } from "react";
 
 function Login(props) {
-      const [email, setEmail] = useState({ email: "" });
-      const [password, setPassword] = useState({ password: "" });
+    const [email, setEmail] = useState({ email: "" });
+    const [password, setPassword] = useState({ password: "" });
 
-      function handleLoginEmail(event) {
-          setEmail(event.target.value);
-      }
+    function handleLoginEmail(event) {
+        setEmail(event.target.value);
+    }
 
-      function handleLoginPassword(event) {
-          setPassword(event.target.value);
-      }
+    function handleLoginPassword(event) {
+        setPassword(event.target.value);
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        props.handleLogin({ email, password });
+    }
 
     return (
         <>
@@ -24,7 +29,7 @@ function Login(props) {
                     </h1>
                     <form
                         className="profile__form profile__form_register"
-                        onSubmit={props.handleLogin({ email, password })}
+                        onSubmit={handleSubmit}
                     >
                         <fieldset className="profile__block-input">
                             <legend className="profile__block-name">

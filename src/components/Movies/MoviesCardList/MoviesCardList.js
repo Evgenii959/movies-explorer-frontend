@@ -1,11 +1,15 @@
-import Card from "../../App.js";
+import MoviesCard from "../MoviesCard/MoviesCard.js";
 
 function MoviesCardList(props) {
+    console.log(props)
     return (
         <>
             <section className="photo">
-                {props.cards.map((elem) => (
-                    <Card element={elem} key={elem._id} />
+                {props.cards.map(elem => (
+                    <MoviesCard
+                        element={elem}
+                        key={elem._id}
+                    />
                 ))}
             </section>
             <div className="photo__addMoviesCard">Еще</div>

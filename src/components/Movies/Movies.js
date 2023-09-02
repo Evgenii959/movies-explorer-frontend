@@ -1,19 +1,21 @@
 import HeaderMovies from "../Movies/HeaderMovies/HeaderMovies.js";
 import SearchForm from "../Movies/SearchForm/SearchForm.js";
 import MoviesCardList from "./MoviesCardList/MoviesCardList.js";
-import Footer from "../Footer/Footer.js"
+import Footer from "../Footer/Footer.js";
 
-function Main() {
+function Movies(props) {
     return (
         <>
             <HeaderMovies />
             <main>
                 <SearchForm />
-                <MoviesCardList />
+                <MoviesCardList
+                    cards={props.cards}
+                />
             </main>
             <Footer />
         </>
     );
 }
 
-export default Main;
+export default Movies;
