@@ -17,19 +17,13 @@ function Profile(props) {
         setName(e.target.value);
     }
 
-    function handleChangeDescription(e) {
+    function handleChangeEmail(e) {
         setEmail(e.target.value);
     }
 
     function handleSubmit(e) {
-        // Запрещаем браузеру переходить по адресу формы
         e.preventDefault();
-        console.log("test");
-        // Передаём значения управляемых компонентов во внешний обработчик
-        props.onUpdateUser({
-            name,
-            email
-        });
+        props.handleUpdateUser({ name, email });
     }
 
     return (
@@ -38,7 +32,7 @@ function Profile(props) {
             <main>
                 <div className="profile">
                     <h1 className="profile__title profile__title_profile">
-                        Привет, Виталий!
+                        Привет, {currentUser.name}!
                     </h1>
                     <form className="profile__form">
                         <div className="profile__input-titles">
@@ -49,32 +43,40 @@ function Profile(props) {
                             <input
                                 className="profile__input profile__input_name"
                                 placeholder="Имя"
+                                minLength="2"
+                                maxLength="40"
                                 title="Что-то пошло не так..."
                                 onChange={handleChangeName}
+                                value={name || ""}
                                 required
                             />
-                            <span className="profile__name-error">
+                            {/* <span className="profile__name-error">
                                 Что-то пошло не так...
-                            </span>
+                            </span> */}
                             <input
                                 className="profile__input profile__input_email"
                                 placeholder="E-mail"
                                 title="Что-то пошло не так..."
-                                onChange={handleChangeDescription}
+                                onChange={handleChangeEmail}
+                                type="email"
+                                value={email || ""}
                                 required
                             />
-                            <span className="profile__name-error">
+                            {/* <span className="profile__name-error">
                                 Что-то пошло не так...
-                            </span>
+                            </span> */}
                         </div>
                     </form>
-                    <p className="profile__edit" handleSubmit={handleSubmit}>
+                    <button
+                        class="profile__button-register"
+                        onClick={handleSubmit}
+                    >
                         Редактировать
-                    </p>
+                    </button>
                     <Link
                         to="/signin"
                         className="profile__leave"
-                        onClick={props.handleUserLeave}
+                        onClick={props.logOut}
                     >
                         Выйти из аккаунта
                     </Link>

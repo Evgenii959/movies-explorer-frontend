@@ -1,15 +1,16 @@
 import MoviesCard from "../MoviesCard/MoviesCard.js";
 
 function MoviesCardList(props) {
-    console.log(props)
     return (
         <>
             <section className="photo">
-                {props.cards.map(elem => (
-                    <MoviesCard
-                        element={elem}
-                        key={elem._id}
-                    />
+                {props.filteredMovies.map(elem => (
+                    <div key={elem.id}>
+                        <MoviesCard
+                            element={elem}
+                            addLikedMovie={props.addLikedMovie}
+                        />
+                    </div>
                 ))}
             </section>
             <div className="photo__addMoviesCard">Еще</div>

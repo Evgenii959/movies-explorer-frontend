@@ -1,22 +1,25 @@
 import HeaderMovies from "../Movies/HeaderMovies/HeaderMovies.js";
-import MoviesCardList from "./MoviesCardList.js";
-import MoviesCard from "./MoviesCard.js";
-import SearchForm from "../Movies/SearchForm/SearchForm.js"
+import SavedMoviesCardList from "./SavedMoviesCardList.js";
+import SavedSearchForm from "../SavedMovies/SavedSearchForm.js";
 import Footer from "../Footer/Footer.js";
 
-function Main() {
+function SavedMovies(props) {
     return (
         <>
             <HeaderMovies />
-            <main>
-                <SearchForm />
-                <MoviesCardList>
-                    <MoviesCard />
-                </MoviesCardList>
-            </main>
+            <SavedSearchForm
+                saveMovies={props.saveMovies}
+                filter={props.filter}
+                handleFilterChange={props.handleFilterChange}
+                setFilteredMovies={props.setFilteredMovies}
+            />
+            <SavedMoviesCardList
+                likedMovies={props.likedMovies}
+                removeCard={props.removeCard}
+            />
             <Footer />
         </>
     );
 }
 
-export default Main;
+export default SavedMovies;

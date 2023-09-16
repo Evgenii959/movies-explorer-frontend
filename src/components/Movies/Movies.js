@@ -7,12 +7,17 @@ function Movies(props) {
     return (
         <>
             <HeaderMovies />
-            <main>
-                <SearchForm />
-                <MoviesCardList
-                    cards={props.cards}
-                />
-            </main>
+            <SearchForm
+                filter={props.filter}
+                cards={props.cards}
+                handleFilterChange={props.handleFilterChange}
+                setFilteredMovies={props.setFilteredMovies}
+            />
+            <MoviesCardList
+                filteredMovies={props.filteredMovies}
+                addLikedMovie={props.addLikedMovie}
+                isLiked={props.isLiked}
+            />
             <Footer />
         </>
     );

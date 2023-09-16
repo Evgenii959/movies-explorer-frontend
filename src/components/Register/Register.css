@@ -80,6 +80,9 @@
         margin: 240px auto 14px;
     }
 }
+.profile__button-register:disabled {
+    background-color: #313131;
+}
 .profile__footer-register {
     display: flex;
 }

@@ -36,6 +36,8 @@ function Register(props) {
                             className="profile__input profile__input_register"
                             type="text"
                             name="name"
+                            minLength="2"
+                            maxLength="40"
                             placeholder="Имя"
                             title="Что-то пошло не так..."
                             onChange={handleName}
@@ -50,7 +52,7 @@ function Register(props) {
                         <legend className="profile__block-name">E-mail</legend>
                         <input
                             className="profile__input profile__input_register"
-                            type="text"
+                            type="email"
                             name="email"
                             placeholder="E-mail"
                             title="Что-то пошло не так..."
@@ -66,7 +68,7 @@ function Register(props) {
                         <legend className="profile__block-name">Пароль</legend>
                         <input
                             className="profile__input profile__input_register"
-                            type="text"
+                            type="password"
                             name="password"
                             placeholder="***********"
                             title="Что-то пошло не так..."

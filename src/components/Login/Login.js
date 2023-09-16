@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
 import RegisterHeader from "../Register/RegisterHeader.js";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 function Login(props) {
     const [email, setEmail] = useState({ email: "" });
     const [password, setPassword] = useState({ password: "" });
+/*     const {
+        register,
+        formState: { errors, isValid },
+        handleSubmit,
+        reset
+    } = useForm({ mode: "onBlur" }); */
 
     function handleLoginEmail(event) {
         setEmail(event.target.value);
@@ -14,7 +21,7 @@ function Login(props) {
         setPassword(event.target.value);
     }
 
-    function handleSubmit(event) {
+    function formSubmit(event) {
         event.preventDefault();
         props.handleLogin({ email, password });
     }
@@ -29,7 +36,7 @@ function Login(props) {
                     </h1>
                     <form
                         className="profile__form profile__form_register"
-                        onSubmit={handleSubmit}
+                        onSubmit={formSubmit}
                     >
                         <fieldset className="profile__block-input">
                             <legend className="profile__block-name">
@@ -37,16 +44,22 @@ function Login(props) {
                             </legend>
                             <input
                                 className="profile__input profile__input_register"
-                                type="text"
+                                type="email"
                                 name="email"
-                                placeholder="E-mail"
-                                title="Что-то пошло не так..."
+                                id="email"
                                 onChange={handleLoginEmail}
-                                value={email.email}
-                                required
+                                /* {...register("email", {
+                                    required: "Поле обязательно к заполнению",
+                                    minLength: {
+                                        value: email,
+                                        message: "Минимум 5 символов"
+                                    }
+                                })} */
                             />
                             <span className="profile__name-error">
-                                Что-то пошло не так...
+                                {/* {errors?.email && (
+                                    <p>{errors?.email?.message || "Error"}</p>
+                                )} */}
                             </span>
                         </fieldset>
                         <fieldset className="profile__block-input">
@@ -55,24 +68,31 @@ function Login(props) {
                             </legend>
                             <input
                                 className="profile__input profile__input_register"
-                                type="text"
+                                type="password"
                                 name="Пароль"
-                                placeholder="**********"
-                                title="Что-то пошло не так..."
+                                id="password"
                                 onChange={handleLoginPassword}
-                                value={password.password}
-                                required
+                                /* {...register("password", {
+                                    required: "Поле обязательно к заполнению",
+                                    minLength: {
+                                        value: password,
+                                        message: "Минимум 5 символов"
+                                    }
+                                })} */
                             />
                             <span className="profile__name-error">
-                                Что-то пошло не так...
+                                {/* {errors?.password && (
+                                    <p>
+                                        {errors?.password?.message || "Error"}
+                                    </p>
+                                )} */}
                             </span>
                         </fieldset>
-                        <button
+                        <input
                             className="profile__button-register"
                             type="submit"
-                        >
-                            Войти
-                        </button>
+                            /* disabled={!isValid} */
+                        />
                     </form>
                     <div className="profile__footer-register">
                         <h2 className="profile__question-register">

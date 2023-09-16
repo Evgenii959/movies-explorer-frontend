@@ -24,7 +24,7 @@ export function login({ email, password }) {
     }).then(getResponseData);
 }
 
-export function editUser({ email, password }) {
+export function editUser({ name, email }) {
     return fetch(`${BASE_URL}/users/me`, {
         method: "PATCH",
         credentials: "include",
@@ -32,7 +32,7 @@ export function editUser({ email, password }) {
             "Content-Type": "application/json",
             Accept: "application/json"
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ name: name, email: email })
     }).then(getResponseData);
 }
 
@@ -77,7 +77,7 @@ export function saveMovie(movie) {
             thumbnail:
                 "https://api.nomoreparties.co" +
                 movie.image.formats.thumbnail.url,
-            movield: movie.movield,
+            movieId: movie.movieId,
             nameRU: movie.nameRU,
             nameEN: movie.nameEN
         })

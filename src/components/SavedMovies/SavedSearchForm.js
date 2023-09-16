@@ -1,14 +1,14 @@
-import SearchIcon from "../../../images/search-icon.svg";
-import FilterCheckbox from "../FilterCheckbox/FilterCheckbox.js";
+import SearchIcon from "../../images/search-icon.svg";
+import FilterCheckbox from "../Movies/FilterCheckbox/FilterCheckbox.js";
 import { useEffect, useState } from "react";
 
-function SearchForm(props) {
+function SavedSearchForm(props) {
     const [errorMessage, setErrorMessage] = useState("");
 
     const handleSubmit = e => {
         e.preventDefault();
-        const filtered = props.cards.filter(card =>
-            card.nameRU.toLowerCase().includes(props.filter.toLowerCase())
+        const filtered = props.saveMovies.filter(saveCard =>
+            saveCard.nameRU.toLowerCase().includes(props.filter.toLowerCase())
         );
         props.setFilteredMovies(filtered);
     };
@@ -44,4 +44,4 @@ function SearchForm(props) {
     );
 }
 
-export default SearchForm;
+export default SavedSearchForm;
