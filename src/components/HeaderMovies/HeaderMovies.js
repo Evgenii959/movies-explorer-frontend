@@ -1,26 +1,26 @@
-import Menu from "../../Menu/Menu.js";
+import Menu from "../Menu/Menu.js";
 import { useState } from "react";
-import { Link } from "react-router-dom"; 
+import { Link, NavLink } from "react-router-dom";
 
 function HeaderMovies() {
-        const items = [
-            { value: "Главная", href: "/" },
-            { value: "Фильмы", href: "/movies" },
-            { value: "Сохраненные фильмы", href: "/saved-movies" },
-        ];
-        const [menuActive, setMenuActive] = useState(false);
+    const items = [
+        { value: "Главная", href: "/" },
+        { value: "Фильмы", href: "/movies" },
+        { value: "Сохраненные фильмы", href: "/saved-movies" },
+    ];
+    const [menuActive, setMenuActive] = useState(false);
     return (
         <>
             <header className="header header__movies">
                 <div className="header__block">
                     <Link to="/" className="header__logo" />
                     <div className="header__container">
-                        <Link to="/movies" className="header__films">
+                        <NavLink to="/movies" className="header__films">
                             Фильмы
-                        </Link>
-                        <Link to="/saved-movies" className="header__films">
+                        </NavLink>
+                        <NavLink to="/saved-movies" className="header__films">
                             Сохранённые фильмы
-                        </Link>
+                        </NavLink>
                     </div>
                 </div>
                 <div className="header__account-icon">

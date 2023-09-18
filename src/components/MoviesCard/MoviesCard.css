@@ -35,7 +35,7 @@
     opacity: 1;
 }
 .photo__heart {
-    background-image: url(../../../images/heart.svg);
+    background-image: url(../../images/heart.svg);
     max-height: 18px;
     background-repeat: no-repeat;
     margin: 7px;
@@ -44,8 +44,8 @@
     height: 8.5px;
     cursor: pointer;
 }
-.photo__heart_aktiv {
-    background-image: url(../../../images/heart_aktiv.svg);
+.photo__heart_active {
+    background-image: url(../../images/heart_aktiv.svg);
     max-height: 18px;
     background-repeat: no-repeat;
     margin: 7px;
@@ -55,7 +55,7 @@
     cursor: pointer;
 }
 .photo__delete {
-    background-image: url(../../../images/крест.svg);
+    background-image: url(../../images/крест.svg);
     margin: 7px 4px;
     border: 0;
     height: 9px;
@@ -76,9 +76,13 @@
     max-width: 320px;
     text-align: center;
     font-size: 12px;
-    font-weight: 500px;
     cursor: pointer;
 }
+
+.photo__addMoviesCard_hidden {
+    display: none;
+}
+
 .photo__addMoviesCard:hover {
     opacity: 0.6;
 }

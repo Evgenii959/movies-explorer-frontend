@@ -10,117 +10,77 @@ import Menu from "./Menu/Menu.js";
 import { useState, useEffect } from "react";
 import { ProtectedRoute } from "./ProtectedRoute.js";
 import { getMovies } from "../utils/MoviesApi.js";
-import Cookies from "js-cookie";
 import {
     register,
     login,
     editUser,
-    getUser,
     loginWithToken,
     deleteMovie,
     signOut,
     getSavedMovies,
-    saveMovie
+    saveMovie,
 } from "../utils/MainApi.js";
-import {
-    UserContext,
-    SavedMoviesContext
-} from "../contexts/CurrentUserContext";
+import { UserContext } from "../contexts/CurrentUserContext";
+import EditProfile from "./EditProfile/EditProfile";
+import Preloader from "./Preloader/Preloader";
 
 function App() {
     const [menuActive, setMenuActive] = useState(false);
-    const [cards, setCards] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [currentUser, setCurrentUser] = useState({});
-    const [filter, setFilter] = useState("");
-    const [filteredMovies, setFilteredMovies] = useState([]);
-    const [likedMovies, setLikedMovies] = useState([]);
     const [isToken, setIsToken] = useState(false);
-    /*     const [load, setLoad] = useState(false) */
     const navigate = useNavigate();
+    const [openPreloader, setOpenPreloader] = useState(true);
+    const [savedMovies, setSavedMovies] = useState([]);
+    const [movies, setMovies] = useState([]);
+    const [userMessage, setUserMessage] = useState("");
 
     useEffect(() => {
-        const logged = Cookies.set("jwt");
-        if (logged) {
-            getMovies()
-                .then(data => {
-                    setCards(data);
-                    setIsToken(true);
-                })
-                .catch(err => {
-                    console.log(err);
-                });
+        setTimeout(() => {
+            setUserMessage("");
+        }, 5000);
+    }, [userMessage]);
 
-            const savedLikedMovies = Cookies.get("jwt") || [];
-            setLikedMovies(savedLikedMovies);
-        } else {
-            setIsLoggedIn(false);
-            setIsToken(true);
-        }
-    }, []);
-
-    useEffect(() => {
-        const logged = Cookies.set("jwt");
-        if (logged) {
-            getSavedMovies()
-                .then(data => {
-                    setLikedMovies(data);
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-
-            const savedLikedMovies = Cookies.get("jwt") || [];
-            setLikedMovies(savedLikedMovies);
-        } else {
-            setIsLoggedIn(false);
-            setIsToken(true);
-        }
-    }, []);
-
-    const handleFilterChange = event => {
-        setFilter(event.target.value);
-    };
-
-    const handleRegister = ({ name, email, password }) => event => {
-        event.preventDefault();
+    const handleRegister = ({ name, email, password }) => {
         register({ name, email, password })
-            .then(res => {
+            .then((res) => {
                 if (res !== false) {
                     navigate("/signin", { replace: true });
+                    handleLogin({ email, password });
                 }
             })
-            .catch(err => {
+            .catch((err) => {
                 console.log(err);
             });
     };
 
     const handleTokenCheck = () => {
         loginWithToken()
-            .then(res => {
+            .then((res) => {
                 if (res) {
                     setIsLoggedIn(true);
                     setCurrentUser(res);
                 }
             })
-            .catch(err => {
+            .catch((err) => {
                 console.log(err);
-            });
+            })
+            .finally(() => setIsToken(true));
     };
 
     useEffect(() => {
         handleTokenCheck();
-    }, []);
+    }, [isLoggedIn]);
 
     const handleLogin = ({ email, password }) => {
         login({ email, password })
-            .then(res => {
+            .then((res) => {
                 if (res !== false) {
                     navigate("/movies", { replace: true });
                     setIsLoggedIn(true);
                 }
             })
-            .catch(err => {
+            .catch((err) => {
                 console.log(err);
                 setIsLoggedIn(false);
             });
@@ -128,69 +88,125 @@ function App() {
 
     function logOut() {
         signOut()
-            .then(res => {
-                res.clearCookie("jwt", { path: "/" });
-                navigate("/");
-                console.log(res);
+            .then((res) => {
+                if (res !== false) {
+                    setIsLoggedIn(false);
+                    navigate("/", { replace: true });
+                    localStorage.clear();
+                    setUserMessage("");
+                    setCurrentUser({});
+                }
             })
-            .catch(err => {
+            .catch((err) => {
                 console.log(err);
             });
     }
 
     function handleUpdateUser({ name, email }) {
         editUser({ name, email })
-            .then(res => {
+            .then((res) => {
                 setCurrentUser(res);
+                navigate("/profile");
+                setUserMessage("Профиль обновлен");
             })
-            .catch(err => {
+            .catch((err) => {
                 console.log(err);
             });
     }
 
-    const saveLikedMoviesToCookies = movies => {
-        Cookies.set("jwt", movies, { expires: 365 });
-    };
+    function getBitFilmsMovies(search) {
+        setOpenPreloader(true);
+        getMovies()
+            .then((movies) => {
+                const updatedMovies = movies.map((movie) => {
+                    const savedMovie = savedMovies.find(
+                        (item) => item.movieId === movie.id,
+                    );
+                    if (savedMovie) {
+                        return { ...movie, class: "like", key: movie.id };
+                    }
+                    return { ...movie, class: "default", key: movie.id };
+                });
+                search(true);
+                setMovies(updatedMovies);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                setOpenPreloader(false);
+            });
+    }
 
-    const addLikedMovie = movie => {
-        const likedMoviesArray = Object.values(likedMovies);
-        // Проверяем, был ли фильм уже добавлен в список понравившихся
-        if (!likedMoviesArray.find(m => m.id === movie.id)) {
-            const updatedLikedMovies = [...likedMovies, movie];
-            setLikedMovies(updatedLikedMovies);
-            saveLikedMoviesToCookies(updatedLikedMovies); // Сохраняем в cookie
+    useEffect(() => {
+        if (!isLoggedIn) return;
+        setOpenPreloader(true);
 
-            saveMovie(movie)
-                .then(data => {
-                    console.log("Фильм добавлен:", data);
-                })
-                .catch(err => console.log("error", err));
-        }
-    };
+        getSavedMovies()
+            .then((savedMovies) => {
+                const updatedSavedMovies = savedMovies.map((movie) => {
+                    return { ...movie, class: "remove", key: movie._id };
+                });
+                setSavedMovies(updatedSavedMovies);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+            .finally(() => {
+                setOpenPreloader(false);
+            });
+    }, [isLoggedIn]);
 
-    const removeCard = movie => {
-        const updatedLikedMovies = likedMovies.filter(m => m.id !== movie.id);
-        setLikedMovies(updatedLikedMovies);
-        saveLikedMoviesToCookies(updatedLikedMovies);
-
-        deleteMovie(movie)
-            .then(() => {
-                const updatedLikedMovies = likedMovies.filter(
-                    m => m.id !== movie.id
+    const addLikedMovie = (movie) => {
+        setOpenPreloader(true);
+        saveMovie(movie)
+            .then((res) => {
+                setMovies((state) =>
+                    state.map((el) =>
+                        el.id === res.movieId ? { ...el, class: "like" } : el,
+                    ),
                 );
-                setLikedMovies(updatedLikedMovies);
+                res.class = "remove";
+                setSavedMovies((prevMovies) => [...prevMovies, res]);
             })
-            .then(data => {
-                console.log("Фильм удален:", data);
-                removeCard(movie);
+            .catch((error) => {
+                console.log(error);
             })
-            .catch(err => console.log("error", err));
+            .finally(() => {
+                setOpenPreloader(false);
+            });
+    };
+
+    const removeMovie = (movieID) => {
+        setOpenPreloader(true);
+        const removedMovie = savedMovies.find((item) => {
+            return item.movieId === movieID ? item : "";
+        });
+
+        deleteMovie(removedMovie._id)
+            .then(() => {
+                setSavedMovies((state) =>
+                    state.filter((el) => el.movieId !== movieID),
+                );
+
+                setMovies((state) =>
+                    state.map((el) =>
+                        el.id === movieID ? { ...el, class: "default" } : el,
+                    ),
+                );
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+            .finally(() => {
+                setOpenPreloader(false);
+            });
     };
 
     const items = [
         { value: "Главная", href: "/" },
         { value: "Фильмы", href: "/movies" },
-        { value: "Сохраненные фильмы", href: "/saved-movies" }
+        { value: "Сохраненные фильмы", href: "/saved-movies" },
     ];
 
     return (
@@ -208,12 +224,10 @@ function App() {
                                 <ProtectedRoute
                                     element={Movies}
                                     isLoggedIn={isLoggedIn}
-                                    filteredMovies={filteredMovies}
-                                    filter={filter}
-                                    setFilteredMovies={setFilteredMovies}
-                                    cards={cards}
-                                    handleFilterChange={handleFilterChange}
+                                    movies={movies}
                                     addLikedMovie={addLikedMovie}
+                                    removeMovie={removeMovie}
+                                    getBitFilmsMovies={getBitFilmsMovies}
                                 />
                             }
                         />
@@ -222,12 +236,9 @@ function App() {
                             element={
                                 <ProtectedRoute
                                     element={SavedMovies}
-                                    likedMovies={likedMovies}
                                     isLoggedIn={isLoggedIn}
-                                    filter={filter}
-                                    setFilteredMovies={setFilteredMovies}
-                                    handleFilterChange={handleFilterChange}
-                                    removeCard={removeCard}
+                                    removeMovie={removeMovie}
+                                    savedMovies={savedMovies}
                                 />
                             }
                         />
@@ -254,9 +265,19 @@ function App() {
                             element={
                                 <ProtectedRoute
                                     element={Profile}
-                                    handleUpdateUser={handleUpdateUser}
                                     isLoggedIn={isLoggedIn}
                                     logOut={logOut}
+                                    userMessage={userMessage}
+                                />
+                            }
+                        />
+                        <Route
+                            path="/edit"
+                            element={
+                                <ProtectedRoute
+                                    element={EditProfile}
+                                    handleUpdateUser={handleUpdateUser}
+                                    isLoggedIn={isLoggedIn}
                                 />
                             }
                         />
@@ -267,6 +288,7 @@ function App() {
                         setActive={setMenuActive}
                         items={items}
                     />
+                    <Preloader openPreloader={openPreloader} />
                 </UserContext.Provider>
             )}
         </>

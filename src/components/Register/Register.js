@@ -1,23 +1,14 @@
 import { NavLink } from "react-router-dom";
 import RegisterHeader from "../Register/RegisterHeader.js";
-import { useState } from "react";
+import { checkError, Validation } from "../Validation/validation";
 
 function Register(props) {
-    const [name, setName] = useState({ name: "" });
-    const [email, setEmail] = useState({ email: "" });
-    const [password, setPassword] = useState({ password: "" });
+    const { register, handleSubmit, errors, isValid } = Validation();
 
-    function handleName(event) {
-        setName(event.target.value);
-    }
-
-    function handleEmail(event) {
-        setEmail(event.target.value);
-    }
-
-    function handlePassword(event) {
-        setPassword(event.target.value);
-    }
+    const formSubmit = (data) => {
+        console.log(data);
+        props.handleRegister(data);
+    };
 
     return (
         <>
@@ -28,7 +19,7 @@ function Register(props) {
                 </h1>
                 <form
                     className="profile__form profile__form_register"
-                    onSubmit={props.handleRegister({ name, email, password })}
+                    onSubmit={handleSubmit(formSubmit)}
                 >
                     <fieldset className="profile__block-input">
                         <legend className="profile__block-name">Имя</legend>
@@ -39,13 +30,11 @@ function Register(props) {
                             minLength="2"
                             maxLength="40"
                             placeholder="Имя"
-                            title="Что-то пошло не так..."
-                            onChange={handleName}
-                            value={name.name}
+                            {...register("name", checkError("name"))}
                             required
                         />
                         <span className="profile__name-error">
-                            Что-то пошло не так...
+                            {errors.name ? errors.name.message : ""}
                         </span>
                     </fieldset>
                     <fieldset className="profile__block-input">
@@ -55,13 +44,11 @@ function Register(props) {
                             type="email"
                             name="email"
                             placeholder="E-mail"
-                            title="Что-то пошло не так..."
-                            onChange={handleEmail}
-                            value={email.email}
+                            {...register("email", checkError("email"))}
                             required
                         />
                         <span className="profile__name-error">
-                            Что-то пошло не так...
+                            {errors.email ? errors.email.message : ""}
                         </span>
                     </fieldset>
                     <fieldset className="profile__block-input">
@@ -71,16 +58,18 @@ function Register(props) {
                             type="password"
                             name="password"
                             placeholder="***********"
-                            title="Что-то пошло не так..."
-                            onChange={handlePassword}
-                            value={password.password}
+                            {...register("password", checkError("password"))}
                             required
                         />
                         <span className="profile__name-error">
-                            Что-то пошло не так...
+                            {errors.password ? errors.password.message : ""}
                         </span>
                     </fieldset>
-                    <button className="profile__button-register" type="submit">
+                    <button
+                        className="profile__button-register"
+                        type="submit"
+                        disabled={!isValid}
+                    >
                         Зарегистрироваться
                     </button>
                 </form>

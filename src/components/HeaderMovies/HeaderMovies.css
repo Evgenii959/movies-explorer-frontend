@@ -17,7 +17,7 @@
     font-size: 13px;
     line-height: 18px;
     margin: auto 0 auto 16px;
-    font-weight: 500;
+    font-weight: 400;
     text-decoration: none;
     color: #fff;
 }
@@ -34,7 +34,13 @@
     font-size: 13px;
     line-height: 12px;
     font-weight: 500;
+    margin-left: 200px;
 }
+
+.active {
+    font-weight: 500; 
+}
+
 .header__account {
     margin: auto 8px auto 0;
     color: #fff;
@@ -49,7 +55,7 @@
     }
 }
 .header__icon {
-    background-image: url(../../../images/icon.svg);
+    background-image: url(../../images/icon.svg);
     background-repeat: no-repeat;
     width: 26px;
     max-height: 26px;
@@ -66,7 +72,7 @@
     }
 }
 .header__strings {
-    background-image: url(../../../images/палки.svg);
+    background-image: url(../../images/палки.svg);
     display: none;
 }
 @media (max-width: 768px) {

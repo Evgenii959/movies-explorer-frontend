@@ -6,9 +6,9 @@ export function register({ name, email, password }) {
         credentials: "include",
         headers: {
             "Content-Type": "application/json",
-            Accept: "application/json"
+            Accept: "application/json",
         },
-        body: JSON.stringify({ name, email, password })
+        body: JSON.stringify({ name, email, password }),
     }).then(getResponseData);
 }
 
@@ -18,9 +18,9 @@ export function login({ email, password }) {
         credentials: "include",
         headers: {
             "Content-Type": "application/json",
-            Accept: "application/json"
+            Accept: "application/json",
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password }),
     }).then(getResponseData);
 }
 
@@ -30,9 +30,9 @@ export function editUser({ name, email }) {
         credentials: "include",
         headers: {
             "Content-Type": "application/json",
-            Accept: "application/json"
+            Accept: "application/json",
         },
-        body: JSON.stringify({ name: name, email: email })
+        body: JSON.stringify({ name: name, email: email }),
     }).then(getResponseData);
 }
 
@@ -42,19 +42,19 @@ export function loginWithToken() {
         credentials: "include",
         headers: {
             "Content-Type": "application/json",
-            Accept: "application/json"
-        }
+            Accept: "application/json",
+        },
     }).then(getResponseData);
 }
 
 export function getSavedMovies() {
-    return fetch(`${BASE_URL}/saved-movies`, {
+    return fetch(`${BASE_URL}/movies`, {
         method: "GET",
         credentials: "include",
         headers: {
             "Content-Type": "application/json",
-            Accept: "application/json"
-        }
+            Accept: "application/json",
+        },
     }).then(getResponseData);
 }
 
@@ -64,7 +64,7 @@ export function saveMovie(movie) {
         credentials: "include",
         headers: {
             "Content-Type": "application/json",
-            Accept: "application/json"
+            Accept: "application/json",
         },
         body: JSON.stringify({
             country: movie.country,
@@ -77,10 +77,10 @@ export function saveMovie(movie) {
             thumbnail:
                 "https://api.nomoreparties.co" +
                 movie.image.formats.thumbnail.url,
-            movieId: movie.movieId,
+            movieId: movie.id,
             nameRU: movie.nameRU,
-            nameEN: movie.nameEN
-        })
+            nameEN: movie.nameEN,
+        }),
     }).then(getResponseData);
 }
 
@@ -90,8 +90,8 @@ export function signOut() {
         credentials: "include",
         headers: {
             "Content-Type": "application/json",
-            Accept: "application/json"
-        }
+            Accept: "application/json",
+        },
     }).then(getResponseData);
 }
 
@@ -101,8 +101,8 @@ export function deleteMovie(movieId) {
         credentials: "include",
         headers: {
             "Content-Type": "application/json",
-            Accept: "application/json"
-        }
+            Accept: "application/json",
+        },
     }).then(getResponseData);
 }
 

@@ -1,30 +1,12 @@
 import { Link } from "react-router-dom";
 import RegisterHeader from "../Register/RegisterHeader.js";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-
+import { checkError, Validation } from "../Validation/validation";
 function Login(props) {
-    const [email, setEmail] = useState({ email: "" });
-    const [password, setPassword] = useState({ password: "" });
-/*     const {
-        register,
-        formState: { errors, isValid },
-        handleSubmit,
-        reset
-    } = useForm({ mode: "onBlur" }); */
+    const { register, handleSubmit, errors, isValid } = Validation();
 
-    function handleLoginEmail(event) {
-        setEmail(event.target.value);
-    }
-
-    function handleLoginPassword(event) {
-        setPassword(event.target.value);
-    }
-
-    function formSubmit(event) {
-        event.preventDefault();
-        props.handleLogin({ email, password });
-    }
+    const formSubmit = (data) => {
+        props.handleLogin(data);
+    };
 
     return (
         <>
@@ -36,7 +18,7 @@ function Login(props) {
                     </h1>
                     <form
                         className="profile__form profile__form_register"
-                        onSubmit={formSubmit}
+                        onSubmit={handleSubmit(formSubmit)}
                     >
                         <fieldset className="profile__block-input">
                             <legend className="profile__block-name">
@@ -47,19 +29,10 @@ function Login(props) {
                                 type="email"
                                 name="email"
                                 id="email"
-                                onChange={handleLoginEmail}
-                                /* {...register("email", {
-                                    required: "Поле обязательно к заполнению",
-                                    minLength: {
-                                        value: email,
-                                        message: "Минимум 5 символов"
-                                    }
-                                })} */
+                                {...register("email", checkError("email"))}
                             />
                             <span className="profile__name-error">
-                                {/* {errors?.email && (
-                                    <p>{errors?.email?.message || "Error"}</p>
-                                )} */}
+                                {errors.email ? errors.email.message : ""}
                             </span>
                         </fieldset>
                         <fieldset className="profile__block-input">
@@ -71,28 +44,22 @@ function Login(props) {
                                 type="password"
                                 name="Пароль"
                                 id="password"
-                                onChange={handleLoginPassword}
-                                /* {...register("password", {
-                                    required: "Поле обязательно к заполнению",
-                                    minLength: {
-                                        value: password,
-                                        message: "Минимум 5 символов"
-                                    }
-                                })} */
+                                {...register(
+                                    "password",
+                                    checkError("password"),
+                                )}
                             />
                             <span className="profile__name-error">
-                                {/* {errors?.password && (
-                                    <p>
-                                        {errors?.password?.message || "Error"}
-                                    </p>
-                                )} */}
+                                {errors.password ? errors.password.message : ""}
                             </span>
                         </fieldset>
-                        <input
+                        <button
                             className="profile__button-register"
                             type="submit"
-                            /* disabled={!isValid} */
-                        />
+                            disabled={!isValid}
+                        >
+                            Войти
+                        </button>
                     </form>
                     <div className="profile__footer-register">
                         <h2 className="profile__question-register">

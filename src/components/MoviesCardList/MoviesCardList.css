@@ -30,3 +30,7 @@
         max-width: 300px;
     }
 }
+
+.photo__message {
+    text-align: center;
+}

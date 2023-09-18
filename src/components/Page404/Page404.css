@@ -40,7 +40,10 @@
     margin: 184px 0 0;
     color: #4285F4;
     text-decoration: none;
+    border: none;
+    background: transparent;
 }
+
 .notFound__back:hover {
     opacity: 0.6;
 }

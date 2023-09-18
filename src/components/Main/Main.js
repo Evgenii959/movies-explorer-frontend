@@ -5,10 +5,10 @@ import AboutMe from "./AboutMe/AboutMe.js";
 import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
 
-function Main() {
+function Main(props) {
     return (
         <>
-            <Header />
+            <Header isLoggedIn={props.isLoggedIn} />
             <Promo />
             <Project />
             <Techs />

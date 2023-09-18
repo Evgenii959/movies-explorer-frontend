@@ -1,9 +1,17 @@
-function SavedMoviesCard(props) {
+function MoviesCard(props) {
+    const cardLikeButtonClassName = `photo__heart ${
+        props.class === "like" && "photo__heart_active"
+    }`;
+
     function time(duration) {
         const number = parseInt(duration);
         const hours = Math.floor(number / 60);
         const minutes = number % 60;
         return `${hours}ч ${minutes}м`;
+    }
+
+    function like() {
+        props.onLike(props.movie);
     }
 
     function remove() {
@@ -15,17 +23,17 @@ function SavedMoviesCard(props) {
             <a href={props.movie.trailerLink} target="blank">
                 <img
                     className="photo__item"
-                    src={props.movie.image}
+                    src={`https://api.nomoreparties.co/${props.movie.image.url}`}
                     alt={props.movie.description}
                 />
             </a>
             <div className="photo__title-toggle">
                 <h2 className="photo__title">{props.movie.nameRU}</h2>
-                <div className="photo__toggle photo__toggle_delete">
+                <div className="photo__toggle">
                     <button
-                        className="photo__delete"
+                        className={cardLikeButtonClassName}
                         type="button"
-                        onClick={remove}
+                        onClick={props.class === "default" ? like : remove}
                     />
                 </div>
             </div>
@@ -34,4 +42,4 @@ function SavedMoviesCard(props) {
     );
 }
 
-export default SavedMoviesCard;
+export default MoviesCard;
