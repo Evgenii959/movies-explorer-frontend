@@ -1,4 +1,4 @@
-const BASE_URL = "https://frontend-evgeny.nomoredomains.sbs";
+const BASE_URL = "https://backend-evgeny.nomoredomains.sbs";
 
 export function register({ name, email, password }) {
     return fetch(`${BASE_URL}/signup`, {
