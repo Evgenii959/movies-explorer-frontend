@@ -30,7 +30,7 @@ function App() {
     const [currentUser, setCurrentUser] = useState({});
     const [isToken, setIsToken] = useState(false);
     const navigate = useNavigate();
-    const [openPreloader, setOpenPreloader] = useState(true);
+    const [openPreloader, setOpenPreloader] = useState(false);
     const [savedMovies, setSavedMovies] = useState([]);
     const [movies, setMovies] = useState([]);
     const [userMessage, setUserMessage] = useState("");
