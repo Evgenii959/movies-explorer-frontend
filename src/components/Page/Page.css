@@ -1,0 +1,11 @@
+.page {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #202020;
+    margin: auto;
+    color: #ffffff;
+    font-weight: 400;
+    max-width: 1280px;
+    width: 100%;
+    font-family: "Inter", "Arial", sans-serif;
+}

@@ -1,0 +1,115 @@
+.tech {
+    background-color: #272727;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+@media (max-width: 1200px) {
+    .tech {
+
+        padding-bottom: 80px;
+    }
+}
+.tech__header {
+    font-size: 22px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 23px;
+    font-weight: 400;
+    margin: auto;
+    max-width: 1140px;
+}
+@media (max-width: 1200px) {
+    .tech__header {
+        max-width: 668px;
+    }
+}
+@media (max-width: 767px) {
+    .tech__header {
+        font-size: 18px;
+        max-width: 284px;
+        padding-bottom: 28px;
+    }
+}
+.tech__title-subtitle {
+    margin: 0;
+    padding: 0;
+}
+@media (max-width: 767px) {
+    .tech__title-subtitle {
+        font-size: 11px;
+        max-width: 292px;
+    }
+}
+.tech__title {
+    line-height: 58px;
+    font-size: 50px;
+    text-align: center;
+    font-weight: 400;
+    margin: 90px auto 26px;
+}
+@media (max-width: 1200px) {
+    .tech__title {
+        margin-bottom: 22px;
+    }
+}
+@media (max-width: 767px) {
+    .tech__title {
+        font-size: 30px;
+        margin: 50px auto 14px;
+    }
+}
+.tech__subtitle {
+    line-height: 20px;
+    font-size: 14px;
+    max-width: 500px;;
+    text-align: center;
+    margin: auto auto 100px;
+    padding: 0;
+}
+@media (max-width: 1200px) {
+    .tech__subtitle {
+        margin-bottom: 83px;
+    }
+}
+@media (max-width: 767px) {
+    .tech__subtitle {
+        line-height: 16px;
+        font-size: 11px;
+        margin-bottom: 50px;
+    }
+}
+.tech__inform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tech__languages {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+@media (max-width: 767px) {
+    .tech__languages {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 84px 84px;
+        grid-template-rows: 57px 57px;
+    }
+}
+.tech__lang {
+    list-style: none;
+    background-color: #303030;
+    min-width: 90px;
+    min-height: 40px;
+    margin-right: 10px;
+    text-align: center;
+    padding-top: 20px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+@media (max-width: 767px) {
+    .tech__lang {
+        font-size: 12px;
+    }
+}
+
