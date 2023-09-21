@@ -9,8 +9,14 @@ function EditProfile(props) {
     const navigate = useNavigate();
     const currentUser = useContext(UserContext);
 
-    const { register, handleSubmit, setValue, watch, errors, isValid } =
-        Validation();
+    const {
+        register,
+        handleSubmit,
+        setValue,
+        watch,
+        errors,
+        isValid
+    } = Validation();
     const [formChanged, setFormChanged] = useState(false);
 
     useEffect(() => {

@@ -6,7 +6,7 @@ function Header(props) {
     const items = [
         { value: "Главная", href: "/" },
         { value: "Фильмы", href: "/movies" },
-        { value: "Сохраненные фильмы", href: "/saved-movies" },
+        { value: "Сохраненные фильмы", href: "/saved-movies" }
     ];
     const [menuActive, setMenuActive] = useState(false);
     return (

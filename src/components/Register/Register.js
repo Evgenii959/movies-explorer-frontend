@@ -13,7 +13,7 @@ function Register(props) {
     return (
         <>
             <RegisterHeader />
-            <div className="profile profile__register">
+            <div className="profile">
                 <h1 className="profile__title profile__title_register">
                     Добро пожаловать!
                 </h1>

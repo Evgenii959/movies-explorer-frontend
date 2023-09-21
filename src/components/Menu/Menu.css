@@ -1,6 +1,6 @@
 .menu {
     position: fixed;
-    transform: translateX(-300%);
+    visibility: hidden;
     right: 0;
     height: 100vh;
     width: 520px;
@@ -13,7 +13,7 @@
     }
 }
 .menu.active {
-    transform: translateX(0%);
+    visibility: visible;
     height: 100vh;
 }
 .menu__background {
@@ -103,8 +103,8 @@ ul li {
 }
 @media (max-width: 767px) {
     .menu__account {
-      font-size: 13px;
-      line-height: 12px;
+        font-size: 13px;
+        line-height: 12px;
     }
 }
 .menu__account-title {

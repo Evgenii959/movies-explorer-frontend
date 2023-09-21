@@ -28,31 +28,20 @@
     margin-top: 11px;
     cursor: pointer;
 }
-.photo__toggle_delete {
-    opacity: 0;
-}
-.photo__toggle_delete:hover {
-    opacity: 1;
-}
 .photo__heart {
     background-image: url(../../images/heart.svg);
-    max-height: 18px;
-    background-repeat: no-repeat;
-    margin: 7px;
-    border: 0;
     background-color: #313131;
-    height: 8.5px;
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
     cursor: pointer;
+    margin-top: 11px;
 }
 .photo__heart_active {
     background-image: url(../../images/heart_aktiv.svg);
-    max-height: 18px;
-    background-repeat: no-repeat;
-    margin: 7px;
-    border: 0;
-    background-color: #313131;
-    height: 8.5px;
-    cursor: pointer;
 }
 .photo__delete {
     background-image: url(../../images/крест.svg);
@@ -61,6 +50,15 @@
     height: 9px;
     background-color: #313131;
     cursor: pointer;
+}
+.photo__toggle_delete {
+    opacity: 0;
+}
+.photo__toggle_delete:hover {
+    opacity: 1;
+}
+.photo__container:hover .photo__toggle_delete {
+    opacity: 1;
 }
 .photo__title-toggle {
     display: flex;

@@ -10,8 +10,20 @@ function SavedMoviesCard(props) {
         props.onRemove(props.id);
     }
 
+    function onMouseOver() {
+        document.getElementById("toggle_delete").classList.add("active");
+    }
+
+    function onMouseOut() {
+        document.getElementById("toggle_delete").classList.remove("active");
+    }
+
     return (
-        <div className="photo__container">
+        <div
+            className="photo__container"
+            onMouseOver={onMouseOver}
+            onMouseOut={onMouseOut}
+        >
             <a href={props.movie.trailerLink} target="blank">
                 <img
                     className="photo__item"
@@ -21,7 +33,10 @@ function SavedMoviesCard(props) {
             </a>
             <div className="photo__title-toggle">
                 <h2 className="photo__title">{props.movie.nameRU}</h2>
-                <div className="photo__toggle photo__toggle_delete">
+                <div
+                    id="toggle_delete"
+                    className="photo__toggle photo__toggle_delete"
+                >
                     <button
                         className="photo__delete"
                         type="button"

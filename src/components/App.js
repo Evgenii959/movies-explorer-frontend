@@ -18,7 +18,7 @@ import {
     deleteMovie,
     signOut,
     getSavedMovies,
-    saveMovie,
+    saveMovie
 } from "../utils/MainApi.js";
 import { UserContext } from "../contexts/CurrentUserContext";
 import EditProfile from "./EditProfile/EditProfile";
@@ -43,26 +43,26 @@ function App() {
 
     const handleRegister = ({ name, email, password }) => {
         register({ name, email, password })
-            .then((res) => {
+            .then(res => {
                 if (res !== false) {
                     navigate("/signin", { replace: true });
                     handleLogin({ email, password });
                 }
             })
-            .catch((err) => {
+            .catch(err => {
                 console.log(err);
             });
     };
 
     const handleTokenCheck = () => {
         loginWithToken()
-            .then((res) => {
+            .then(res => {
                 if (res) {
                     setIsLoggedIn(true);
                     setCurrentUser(res);
                 }
             })
-            .catch((err) => {
+            .catch(err => {
                 console.log(err);
             })
             .finally(() => setIsToken(true));
@@ -74,13 +74,13 @@ function App() {
 
     const handleLogin = ({ email, password }) => {
         login({ email, password })
-            .then((res) => {
+            .then(res => {
                 if (res !== false) {
                     navigate("/movies", { replace: true });
                     setIsLoggedIn(true);
                 }
             })
-            .catch((err) => {
+            .catch(err => {
                 console.log(err);
                 setIsLoggedIn(false);
             });
@@ -88,7 +88,7 @@ function App() {
 
     function logOut() {
         signOut()
-            .then((res) => {
+            .then(res => {
                 if (res !== false) {
                     setIsLoggedIn(false);
                     navigate("/", { replace: true });
@@ -97,19 +97,19 @@ function App() {
                     setCurrentUser({});
                 }
             })
-            .catch((err) => {
+            .catch(err => {
                 console.log(err);
             });
     }
 
     function handleUpdateUser({ name, email }) {
         editUser({ name, email })
-            .then((res) => {
+            .then(res => {
                 setCurrentUser(res);
                 navigate("/profile");
                 setUserMessage("Профиль обновлен");
             })
-            .catch((err) => {
+            .catch(err => {
                 console.log(err);
             });
     }
@@ -117,10 +117,10 @@ function App() {
     function getBitFilmsMovies(search) {
         setOpenPreloader(true);
         getMovies()
-            .then((movies) => {
-                const updatedMovies = movies.map((movie) => {
+            .then(movies => {
+                const updatedMovies = movies.map(movie => {
                     const savedMovie = savedMovies.find(
-                        (item) => item.movieId === movie.id,
+                        item => item.movieId === movie.id
                     );
                     if (savedMovie) {
                         return { ...movie, class: "like", key: movie.id };
@@ -130,7 +130,7 @@ function App() {
                 search(true);
                 setMovies(updatedMovies);
             })
-            .catch((err) => {
+            .catch(err => {
                 console.log(err);
             })
             .finally(() => {
@@ -143,13 +143,13 @@ function App() {
         setOpenPreloader(true);
 
         getSavedMovies()
-            .then((savedMovies) => {
-                const updatedSavedMovies = savedMovies.map((movie) => {
+            .then(savedMovies => {
+                const updatedSavedMovies = savedMovies.map(movie => {
                     return { ...movie, class: "remove", key: movie._id };
                 });
                 setSavedMovies(updatedSavedMovies);
             })
-            .catch((error) => {
+            .catch(error => {
                 console.log(error);
             })
             .finally(() => {
@@ -157,19 +157,19 @@ function App() {
             });
     }, [isLoggedIn]);
 
-    const addLikedMovie = (movie) => {
+    const addLikedMovie = movie => {
         setOpenPreloader(true);
         saveMovie(movie)
-            .then((res) => {
-                setMovies((state) =>
-                    state.map((el) =>
-                        el.id === res.movieId ? { ...el, class: "like" } : el,
-                    ),
+            .then(res => {
+                setMovies(state =>
+                    state.map(el =>
+                        el.id === res.movieId ? { ...el, class: "like" } : el
+                    )
                 );
                 res.class = "remove";
-                setSavedMovies((prevMovies) => [...prevMovies, res]);
+                setSavedMovies(prevMovies => [...prevMovies, res]);
             })
-            .catch((error) => {
+            .catch(error => {
                 console.log(error);
             })
             .finally(() => {
@@ -177,25 +177,25 @@ function App() {
             });
     };
 
-    const removeMovie = (movieID) => {
+    const removeMovie = movieID => {
         setOpenPreloader(true);
-        const removedMovie = savedMovies.find((item) => {
+        const removedMovie = savedMovies.find(item => {
             return item.movieId === movieID ? item : "";
         });
 
         deleteMovie(removedMovie._id)
             .then(() => {
-                setSavedMovies((state) =>
-                    state.filter((el) => el.movieId !== movieID),
+                setSavedMovies(state =>
+                    state.filter(el => el.movieId !== movieID)
                 );
 
-                setMovies((state) =>
-                    state.map((el) =>
-                        el.id === movieID ? { ...el, class: "default" } : el,
-                    ),
+                setMovies(state =>
+                    state.map(el =>
+                        el.id === movieID ? { ...el, class: "default" } : el
+                    )
                 );
             })
-            .catch((error) => {
+            .catch(error => {
                 console.log(error);
             })
             .finally(() => {
@@ -206,7 +206,7 @@ function App() {
     const items = [
         { value: "Главная", href: "/" },
         { value: "Фильмы", href: "/movies" },
-        { value: "Сохраненные фильмы", href: "/saved-movies" },
+        { value: "Сохраненные фильмы", href: "/saved-movies" }
     ];
 
     return (
@@ -245,18 +245,20 @@ function App() {
                         <Route
                             path="/signup"
                             element={
-                                <Register
+                                <ProtectedRoute
+                                    element={Register}
                                     handleRegister={handleRegister}
-                                    isLoggedIn={isLoggedIn}
+                                    isLoggedIn={!isLoggedIn}
                                 />
                             }
                         />
                         <Route
                             path="/signin"
                             element={
-                                <Login
+                                <ProtectedRoute
+                                    element={Login}
                                     handleLogin={handleLogin}
-                                    isLoggedIn={isLoggedIn}
+                                    isLoggedIn={!isLoggedIn}
                                 />
                             }
                         />

@@ -1,7 +1,6 @@
 function MoviesCard(props) {
-    const cardLikeButtonClassName = `photo__heart ${
-        props.class === "like" && "photo__heart_active"
-    }`;
+    const cardLikeButtonClassName = `photo__heart ${props.class === "like" &&
+        "photo__heart_active"}`;
 
     function time(duration) {
         const number = parseInt(duration);
@@ -29,13 +28,11 @@ function MoviesCard(props) {
             </a>
             <div className="photo__title-toggle">
                 <h2 className="photo__title">{props.movie.nameRU}</h2>
-                <div className="photo__toggle">
-                    <button
-                        className={cardLikeButtonClassName}
-                        type="button"
-                        onClick={props.class === "default" ? like : remove}
-                    />
-                </div>
+                <div
+                    className={cardLikeButtonClassName}
+                    type="button"
+                    onClick={props.class === "default" ? like : remove}
+                ></div>
             </div>
             <p className="photo__duration">{time(props.movie.duration)}</p>
         </div>

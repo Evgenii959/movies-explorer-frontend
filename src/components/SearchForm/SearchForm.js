@@ -1,12 +1,12 @@
 import SearchIcon from "../../images/search-icon.svg";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox.js";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Validation } from "../Validation/validation";
 
 function SearchForm(props) {
-    const { register, handleSubmit, setValue } = Validation();
-    const [inputValue, setInputValue] = useState("");
+    const { register, handleSubmit, setValue, watch } = Validation();
+    const inputValue = watch("search");
     const location = useLocation();
 
     useEffect(() => {
@@ -14,12 +14,12 @@ function SearchForm(props) {
             const savedQuery = localStorage.getItem("queryMovies");
             if (savedQuery) {
                 setValue("search", savedQuery);
-                setInputValue(savedQuery);
             }
         }
     }, [location.pathname]);
 
-    const useSubmit = (data) => {
+    const useSubmit = data => {
+        console.log("Form Submitted", data);
         props.onSearch(data.search);
     };
 
@@ -41,9 +41,8 @@ function SearchForm(props) {
                         placeholder="Фильм"
                         name="search"
                         {...register("search")}
-                        value={inputValue || ""}
-                        onChange={(e) => setInputValue(e.target.value)}
                         type="text"
+                        value={inputValue || ""}
                     />
                     <button
                         type="submit"

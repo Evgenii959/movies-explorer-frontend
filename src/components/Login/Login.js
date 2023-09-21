@@ -12,7 +12,7 @@ function Login(props) {
         <>
             <RegisterHeader />
             <main>
-                <div className="profile profile__register">
+                <div className="profile">
                     <h1 className="profile__title profile__title_register">
                         Рады видеть!
                     </h1>
@@ -46,7 +46,7 @@ function Login(props) {
                                 id="password"
                                 {...register(
                                     "password",
-                                    checkError("password"),
+                                    checkError("password")
                                 )}
                             />
                             <span className="profile__name-error">
